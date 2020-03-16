@@ -87,7 +87,7 @@
 <meta property="og:description" content="总结一下在安装MySQL时遇到的一些问题">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-16T05:53:04.000Z">
-<meta property="article:modified_time" content="2020-02-16T06:11:15.744Z">
+<meta property="article:modified_time" content="2020-03-16T12:22:48.290Z">
 <meta property="article:author" content="June wang">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -310,6 +310,7 @@
 <ol start="2">
 <li><p>有关my.ini文件</p>
 <p>在查询各种问题的时候，发现自己的安装目录下没有my.ini文件，一度怀疑自己没安上。。后来一篇博客上提示my.ini文件保存在<strong>ProgramData</strong>文件夹中，然后复制回了安装目录<strong>（Program Files\MySQL\MySQL Server x.y）</strong>…..这波操作是有点骚。。</p>
+<p>my.ini是mysql的配置文件。</p>
 </li>
 </ol>
 <ol start="3">
@@ -320,6 +321,69 @@
 </blockquote>
 <p>好像就是没有进行密码登录，调用指令<strong>mysql -u root -p</strong><br>会提示密码输入，输入后即<strong>Welcome to the MySQL monitor.</strong></p>
 </li>
+</ol>
+<ol start="4">
+<li><p>mysql的两个 配置参数</p>
+<p>basedir 参数：指定了mysql的生成路径，即输入“mysqld install”生成文件<br>datadir 参数：指定了数据库文件的存放路径（也就是今天改了一上午的玩意儿……）</p>
+</li>
+</ol>
+<ol start="5">
+<li><p>更改数据库文件的存放路径：就是更改datadir参数，注意因为管理员权限，文件不能随便更改，需要在别的地方更改后复制粘贴到相应文件夹中。更改过程需要将mysql服务器关闭。</p>
+</li>
+<li><p>更改数据库文件存放路径后更重要的是，当前目录下数据库的初始化（实测这种做法相当于恢复出厂设置，之前的数据库操作是没有初始化的，所以慎用，还需继续学习）</p>
+</li>
+</ol>
+<ol start="7">
+<li><p>更改数据库文件存放路径基本过程（win10管理员模式下）：   </p>
+<ul>
+<li><p>关闭数据库服务</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改my.ini文件中datadir的配置</p>
+</li>
+<li><p>移除原mysql服务</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化data文件，程序会自动创建</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --initialize-insecure</span><br></pre></td></tr></table></figure>
+
+<p>会出现一种报错</p>
+<blockquote>
+<p>Failed to find valid data direatory.</p>
+</blockquote>
+<p>出现这种错误的情况有很多，可能是文件夹路径没有写准确等等。对于我来说，我出现的问题是需要设置user，即</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure>
+
+<p>–user的作用是使用哪个用户来运行mysql server，好像其他的用户没有一定的访问权限。</p>
+<p><strong>注意</strong> ：</p>
+<p>–initialize 表示的是初始化，会更改原root的密码</p>
+<p>-insecure 表示的是初始化后密码为空，若没有，则会随机生成密码，此时需要及时找到随机生成的密码。</p>
+</li>
+<li><p>在路径下出现Data文件夹则初始化成功</p>
+</li>
+<li><p>生成mysql服务</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动mysql服务</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="8">
+<li><p>修改用户登录密码</p>
+<p>实质是操作mysql数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql</span><br><span class="line">ALTER USER &#39;name&#39;@&#39;localhost&#39; IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY &#39;new password&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="9">
+<li>–console 可以显示运行情况，会在cmd中显示错误内容，而不需自己再去打开相应错误文件。u1s1，一定要学会看错误文件呀，虽然网上有教程，但毕竟需要具体问题具体解决</li>
 </ol>
 
       
