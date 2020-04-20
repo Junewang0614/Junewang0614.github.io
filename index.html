@@ -694,6 +694,31 @@
 </ul>
 <p>n、冷知识</p>
 <p>（1） REPL：在控制台上交互执行python代码的过程（所以在sublime上配置的可以交互运行python的叫REPL啊。。</p>
+<p>04-20新奇知识</p>
+<p>1、动态函数</p>
+<p>（1）eval：动态表达式的求值</p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-1.png" alt="01"></p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-2.png" alt="02"></p>
+<p>（2）exec函数：动态语句执行</p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-3.png" alt="03"></p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-4.png" alt="x"></p>
+<p>（3）compile函数：动态语句执行</p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-5.png" alt="05"></p>
+<p><img src="/2020/02/22/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9701/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5Cpython%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%5C01-6.png" alt="06"></p>
+<p>2、函数式编程</p>
+<p>（0）高阶函数：<strong>参数为函数对象的函数或返回函数对象的函数，称之为高阶函数，即函数的函数</strong></p>
+<p>f函数作为另一个函数的对象，是另一个函数的参数。</p>
+<p>（1）map函数，返回可迭代对象</p>
+<p>map(f,iterable,……)将f作用与可迭代对象中的每一个值，依次作用，并返回可迭代对象，f是函数。</p>
+<p>（2）filter函数 过滤器</p>
+<p>filter（f,iterable,……）返回可迭代对象，会根据f的作用，保留可迭代对象中f作用返回为true的值，返回可迭代对象。</p>
+<p>（3）lamda表达式和匿名函数</p>
+<p>在一行里定义一个函数，生成函数对象，即匿名函数</p>
+<p>格式：lamda x1,x2，……：f(x1,x2,……)</p>
+<p>x1,x2是参数，f是对参数的做法</p>
+<p>（4）sorted()函数：对可迭代对象进行排序</p>
+<p>参数：key：排序法则，调用函数，导入函数对象</p>
+<p>reverse：升序（False)降序(True)</p>
 
           
         
