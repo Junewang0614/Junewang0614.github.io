@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>人工智能学习笔记__02</title>
+      <link href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/"/>
+      <url>/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/</url>
+      
+        <content type="html"><![CDATA[<h3 id="regression-回归"><a href="#regression-回归" class="headerlink" title="regression 回归"></a>regression 回归</h3><h5 id="linear-model-线性模型"><a href="#linear-model-线性模型" class="headerlink" title="linear model 线性模型"></a>linear model 线性模型</h5><p>1、设计模型</p><p>2、评价确定的参数是否合适，利用Loss function L，损失来评价</p><p>3、通过数据训练模型training data</p><p>4、testing data计算ERROR</p><p>挑选最好的function，也就是使得损失最小的function</p><p>计算方法：<strong>梯度下降Gradient Descent</strong>，寻找L的最低点</p><ul><li>随机选取初始点W0</li><li>计算W0对L的微分，切线斜率，判断w0的值如何变动（取决于微分与learning rate），w0-》w1</li><li>反复执行第二步</li><li>最后找出的是局部最优解，不一定全局最优（linear上不存在这个问题。没有局部最优解）</li></ul><p>5、优化模型：再设计、再训练、再评价，模型由简单到复杂</p><p>model越来越复杂，training data 越来越匹配，但testing data表现不一定  ——》overfitting 过拟合，所以要选择合适的model</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>人工智能学习笔记__01</title>
+      <link href="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/"/>
+      <url>/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/</url>
+      
+        <content type="html"><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p><p>框架：</p><p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01%5C01.png" alt="01"></p><h4 id="定义中英对照表"><a href="#定义中英对照表" class="headerlink" title="定义中英对照表"></a>定义中英对照表</h4><table><thead><tr><th align="center">English</th><th align="center">Chinese</th></tr></thead><tbody><tr><td align="center">Reinforcement learning</td><td align="center">强化学习</td></tr><tr><td align="center">Supervised learning</td><td align="center">监督学习</td></tr><tr><td align="center">Reinforcement learning</td><td align="center">无监督学习</td></tr><tr><td align="center">linear</td><td align="center">线性</td></tr><tr><td align="center">Network Architecture</td><td align="center">网络架构</td></tr><tr><td align="center">Gradient Descent</td><td align="center">梯度下降</td></tr><tr><td align="center">Adversarial Attack</td><td align="center">对抗攻击</td></tr><tr><td align="center">Explainable AI</td><td align="center"></td></tr><tr><td align="center">Network Compression</td><td align="center">网络压缩</td></tr><tr><td align="center">Anomaly Detection</td><td align="center"></td></tr><tr><td align="center">Transfer Learning</td><td align="center">迁移学习</td></tr><tr><td align="center">Meta learning</td><td align="center">元学习</td></tr><tr><td align="center">life-long learning</td><td align="center">终身学习</td></tr><tr><td align="center">Regression</td><td align="center">回归</td></tr><tr><td align="center">parameter</td><td align="center"></td></tr><tr><td align="center">feature</td><td align="center">特征</td></tr><tr><td align="center">optimal</td><td align="center">最优的</td></tr><tr><td align="center">convex</td><td align="center">凸函数</td></tr><tr><td align="center">overfitting</td><td align="center">过拟合</td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr></tbody></table>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python学习日志</title>
+      <link href="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+      <url>/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/</url>
+      
+        <content type="html"><![CDATA[<p>python学习中遇到的知识总结一下</p><p>2020-04-25更新</p><a id="more"></a><p>1、安装工具包</p><p>命令：<strong>python -m pip install packagename</strong></p><p> <strong>python -m pip install -U pip setuptools</strong> 更新pip和setuptools包</p><p>2、python交互式帮助系统<strong>help（）</strong></p><p>（1）查看模块</p><ul><li><strong>modules</strong>  查看计算机中所有模块</li><li><strong>module name</strong>  输入模块名可以查看详细内容</li><li><strong>module name. function name</strong>  句号表示法查看函数内容</li><li><strong>modules module name</strong>  查看与该模块相关的模块</li></ul><p>（2）</p><ul><li>dir(<strong>builtins</strong>)#两个下划线  查看内置函数列表</li><li>class  输入内置类名可以查看内置类</li></ul><p>n、冷知识</p><p>（1） REPL：在控制台上交互执行python代码的过程（所以在sublime上配置的可以交互运行python的叫REPL啊。。</p><p>04-20新奇知识</p><p>1、动态函数</p><p>（1）eval：动态表达式的求值</p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-1.png" alt="01"></p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-2.png" alt="02"></p><p>（2）exec函数：动态语句执行</p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-3.png" alt="03"></p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-4.png" alt="x"></p><p>（3）compile函数：动态语句执行</p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-5.png" alt="05"></p><p><img src="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/01-6.png" alt="06"></p><p>2、函数式编程</p><p>（0）高阶函数：<strong>参数为函数对象的函数或返回函数对象的函数，称之为高阶函数，即函数的函数</strong></p><p>f函数作为另一个函数的对象，是另一个函数的参数。</p><p>（1）map函数，返回可迭代对象</p><p>map(f,iterable,……)将f作用与可迭代对象中的每一个值，依次作用，并返回可迭代对象，f是函数。</p><p>（2）filter函数 过滤器</p><p>filter（f,iterable,……）返回可迭代对象，会根据f的作用，保留可迭代对象中f作用返回为true的值，返回可迭代对象。</p><p>（3）lamda表达式和匿名函数</p><p>在一行里定义一个函数，生成函数对象，即匿名函数</p><p>格式：lamda x1,x2，……：f(x1,x2,……)</p><p>x1,x2是参数，f是对参数的做法</p><p>（4）sorted()函数：对可迭代对象进行排序</p><p>参数：key：排序法则，调用函数，导入函数对象</p><p>reverse：升序（False)降序(True)</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>&lt;转&gt;游走记忆的时间__中文填词</title>
+      <link href="/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/"/>
+      <url>/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/</url>
+      
+        <content type="html"><![CDATA[<p>《游走记忆的时间》是我很喜欢的一首歌，在不懂得韩语歌词的情况下便被吸引。初听旋律会觉得很温柔很治愈，了解了歌词的含义后又会觉得有些悲伤。想尝试自己填一下中文歌词，现在文学素养和音乐乐理都有很大的不足，不过没关系，慢慢来，人还是要有梦想的。</p><p>这里有一个填的很不错的歌词，收藏下来学习一下。。</p><a id="more"></a><p>中文填词 by 有趣的AC<br>PV图片from：泰妍IG</p><p>转自b站</p><p><a href="https://www.bilibili.com/video/BV1Ws411p7Rb?from=search&amp;seid=22808107266942372" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ws411p7Rb?from=search&amp;seid=22808107266942372</a></p><p>还能够，听你的歌低着头<br>还能够，假装握着你的手<br>还不够，好想淹没在你褐色的眼眸</p><p>还能够，看着你对镜头说<br>还能够，闻着你旧的枕头<br>还不够，仿佛时间溜走像一个小偷</p><p>当我失去力气又漫无目的地在人海游走<br>当我习惯压抑又刻意逃避只愿随波逐流<br>当我嗅着晚风正刮过树叶那干燥的气息<br>好像我的梦境它从未醒来，我还是拥有你</p><p>好想，回到很久以前，回到很久以前<br>我知道你也会愿意<br>回到很久以前</p><p>还能够，默出你的座右铭<br>还能够，明明咫尺却隐忍舞台之后<br>No，这样不够</p><p>每天都，看见你新的笑容<br>每天都，听到你有多优秀，<br>I know，我始终不能够原谅的优秀</p><p>当我失去力气又漫无目的地在人海游走<br>当我习惯压抑又刻意逃避只愿随波逐流<br>当我嗅着晚风正刮过树叶那干燥的气息<br>好像我的梦境它从未醒来，我还是拥有你</p><p>好想，回到很久以前，回到很久以前<br>但你的眼神告诉我<br>唯恐避之不及</p><p>当你偶尔休息又重访故地在街边的长椅<br>当**惯口渴却不常备着你爱喝的可乐<br>当你无意之间走进了街边我在的便利店<br>好像我的梦境它突然醒来，我从未拥有你</p><p>突然，唯恐避之不及，唯恐避之不及<br>当你的眼神告诉我<br>唯恐避之不及<br>是你</p><p>啦啦啦<br>唯恐避之不及<br>啦啦啦<br>唯恐避之不及</p><p>打开记忆被尘封的门锁，你的温柔疯狂地倒放着<br>酸涩海水倒灌进我眼中<br>打开记忆被尘封的门锁，你的渴望疯狂地倒放着<br>酸涩海水倒灌进我眼中<br>打开记忆被尘封的门锁，你的坚决疯狂地倒放着<br>酸涩海水倒灌进我眼中<br>打开记忆被尘封的门锁，你的一切疯狂地倒放着<br>此刻的我已渐渐没有痛</p><p>啦啦啦<br>已渐渐没有痛<br>啦啦啦<br>怎么会没有痛</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 填词向 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python爬虫遇到的问题一览</title>
+      <link href="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/"/>
+      <url>/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/</url>
+      
+        <content type="html"><![CDATA[<h6 id="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"><a href="#正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下" class="headerlink" title="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"></a>正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下</h6><a id="more"></a><p>2020年4月15日</p><p>今天想要实现的功能是爬取网易云用户主页的收藏歌单，歌单的具体内容（标签、介绍）</p><p>今天处理的问题有：<br>（1）链接跳转以及页面过期问题<br>（2）定位节点以及模拟节点点击问题<br>（3）节点不存在的错误抛出问题</p><p>1、链接跳转即页面过期问题：</p><p>想要爬取歌单的更多信息，需要跳转到歌单所在的页面，经过的网页源码的分析可以发现，每个表示歌单节点的内容里可以找到关于该歌单的网页地址，通过browser的get再定位就可以跳转到相应的页面。</p><p>关于歌单节点的网页分析如下图所示：</p><p><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic01.png" alt="pic01"></p><p><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic02.png" alt="pic02"></p><p>直接利用在用户主页获取的收藏歌单节点的列表lists进行元素遍历，然后依次访问每个歌单的链接，会发现报错: <em>StaleElementReferenceExcepti</em></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selenium.common.exceptions.StaleElementReferenceException: Message: stale eleme</span><br></pre></td></tr></table></figure><p>这个错误表示页面内容的过时，即已经跳转到新的页面了，但是lists连接原本的是旧页面，现在获取的都是新页面里面的li的内容，自然找不到想要的内容（自己理解的原理，不一定正确），因而过时错误。</p><p><strong>解决方法</strong>：在转换页面前，将lists中想要的li节点的属性href重新保存在一个新的列表里，然后遍历新的列表即可。</p><p>相关代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''lists是之前函数获取的li节点的合集列表'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_moreinfo</span><span class="params">(lists)</span>:</span><span class="comment">#获取与歌单信息相关的内容</span></span><br><span class="line">id0 =<span class="string">'g_iframe'</span></span><br><span class="line">news = []<span class="comment">#新的用于保存href的列表</span></span><br><span class="line"><span class="comment">#for li in lists:</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):<span class="comment">#需要另保存在一个列表里，因为会存在过时问题</span></span><br><span class="line"><span class="comment">#newurl = str(li.get_attribute('href'))#这是歌单的网址</span></span><br><span class="line">newurl = str(lists[i].get_attribute(<span class="string">'href'</span>))<span class="comment">#这是歌单的网址</span></span><br><span class="line">news.append(newurl)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">browser.get(news[i])</span><br><span class="line">browser.switch_to.frame(id0)</span><br></pre></td></tr></table></figure><p>2、定位节点以及节点点击问题<br><strong>问题引入</strong>：歌单详细信息的介绍内容经常需要鼠标点击“展开”按钮后，里面所有的内容才能完全的显示出来被爬虫获取，因而需要获取“展开”节点并模拟点击该节点。<br>网页结构如图所示：<br><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic03.png" alt="pic03"></p><p>定位节点即通过find相关函数，输入节点特有属性值，即可找到节点，目前更常用的是ccs选择器，觉得一目了然，比较简单。<br>节点点击：简单版：获取的节点（WebElement类型）.click（）<br>（更难的还在探索过程中……）<br>出现的问题：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebDriverException: Message: Element is not clickable at point (918, 13). Other element would receive the click: &lt;div class="xxx"&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>这个错误目前了解的不是很多，大体的意思是点击这个button的时候，这个单击事件被上层的div给接收了……说明div覆盖在这个button上面。上面的div可能也存在相应的节点，导致点击事件被截获。</p><p><strong>解决方法</strong> ：我是再去找节点的特殊性，使节点只能定位到我想操作的那一个节点上，该节点的文本内容只有“展开”，而其他节点可能是“展开XXX”，借助str中的方法endswith(),判断点的后缀是否是“展开”来定位到该节点并click（）打开</p><p>相关代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''判断是否有需要展开的内容'''</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">check = browser.find_element_by_css_selector(<span class="string">'#album-desc-spread'</span>)</span><br><span class="line"><span class="keyword">except</span> NoSuchElementException:</span><br><span class="line"><span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">if</span> check.text.endswith(<span class="string">'展开'</span>):</span><br><span class="line">check.click()</span><br><span class="line">sleep(<span class="number">2</span>)</span><br></pre></td></tr></table></figure><p>3、节点不存在的错误抛出问题</p><p><strong>问题引入</strong>:不同的歌单有不同的属性。有的歌单可能标签+介绍+介绍展开三者节点都存在，有的可能只存在一个或两个，有的甚至一个节点都不存在。如图所示：<br><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic04.png" alt="pic04"><br>                                                                                  三种节点都有的歌单</p><p><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic05.png" alt="pic05"><br>                                                                                  有两种节点的歌单</p><p><img src="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/pic06.png" alt="pic06"><br>                                                                                一个节点都没有的歌单</p><p>如果获取不存在的节点会报错：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element:</span><br></pre></td></tr></table></figure><p><strong>解决方法</strong>：设置异常抛出，没找到节点不执行任何行为，找到了则输出相关内容，三个节点都要判断。<br>相关代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''输出介绍信息'''</span></span><br><span class="line"><span class="keyword">try</span>: </span><br><span class="line">des = browser.find_element_by_css_selector(<span class="string">'#album-desc-more'</span>)</span><br><span class="line"><span class="keyword">except</span> NoSuchElementException:</span><br><span class="line"><span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">print(des.text)</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：一开始会出现<em>NameError: name ‘NoSuchElementException’ is not defined</em>的报错，即python内部没有相关错误类，通过引入即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> NoSuchElementException</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown语法一览</title>
+      <link href="/2020/02/23/markdown%E8%AF%AD%E6%B3%95%E4%B8%80%E8%A7%88/"/>
+      <url>/2020/02/23/markdown%E8%AF%AD%E6%B3%95%E4%B8%80%E8%A7%88/</url>
+      
+        <content type="html"><![CDATA[<h6 id="总结自己新get的以及总是记不住的markdown语法"><a href="#总结自己新get的以及总是记不住的markdown语法" class="headerlink" title="总结自己新get的以及总是记不住的markdown语法"></a>总结自己新get的以及总是记不住的markdown语法</h6><a id="more"></a><p>1、添加链接</p><ul><li><p>给文字添加链接</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[链接文字]（链接网址 <span class="string">"标题"</span>）</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is [June<span class="string">'s blog](https://junewang0614.github.io/ "June")</span></span><br></pre></td></tr></table></figure><p>This is <a href="https://junewang0614.github.io/" title="June">June’s blog</a></p></li><li><p>插入图片链接</p><ul><li>网络连接</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![name](网络链接)</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![凯哥](https:<span class="comment">//c-ssl.duitang.com/uploads/item/201912/08/20191208152338_gasau.jpg)</span></span><br></pre></td></tr></table></figure><p><img src="https://c-ssl.duitang.com/uploads/item/201912/08/20191208152338_gasau.jpg" alt="凯哥"></p><ul><li><p>本地连接</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![name](本地路径)</span><br></pre></td></tr></table></figure></li></ul></li></ul><p>2、创建表格</p><ul><li>简单</li></ul>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name <span class="params">| fun1 |</span>  fun2  </span><br><span class="line">-<span class="params">|-|</span>-</span><br><span class="line">aa <span class="params">| bb |</span> cc <span class="params">|</span></span><br><span class="line"><span class="params">ff |</span> ee <span class="params">| dd |</span></span><br></pre></td></tr></table></figure><table><thead><tr><th>name</th><th>fun1</th><th>fun2</th></tr></thead><tbody><tr><td>aa</td><td>bb</td><td>cc</td></tr><tr><td>ff</td><td>ee</td><td>dd</td></tr></tbody></table><ul><li><p>中等</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | <span class="number">111</span> | <span class="number">222</span> | <span class="number">333</span> | <span class="number">444</span></span><br><span class="line">- | :-: | :-: | :-: | -:</span><br><span class="line">aaa | bbb | ccc | ddd | eee| </span><br><span class="line">fff | ggg| hhh | iii | <span class="number">000</span>|</span><br></pre></td></tr></table></figure><table><thead><tr><th>name</th><th align="center">111</th><th align="center">222</th><th align="center">333</th><th align="right">444</th></tr></thead><tbody><tr><td>aaa</td><td align="center">bbb</td><td align="center">ccc</td><td align="center">ddd</td><td align="right">eee</td></tr><tr><td>fff</td><td align="center">ggg</td><td align="center">hhh</td><td align="center">iii</td><td align="right">000</td></tr></tbody></table><p>可以居中</p></li><li><p>复杂</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | <span class="number">111</span> | <span class="number">222</span> | <span class="number">333</span> | <span class="number">444</span></span><br><span class="line">:-: | :-: | :-: | :-: | :-:</span><br><span class="line">aaa | bbb | ccc | ddd | eee| </span><br><span class="line">fff | ggg| hhh | iii | <span class="number">000</span>|</span><br></pre></td></tr></table></figure><table><thead><tr><th align="center">name</th><th align="center">111</th><th align="center">222</th><th align="center">333</th><th align="center">444</th></tr></thead><tbody><tr><td align="center">aaa</td><td align="center">bbb</td><td align="center">ccc</td><td align="center">ddd</td><td align="center">eee</td></tr><tr><td align="center">fff</td><td align="center">ggg</td><td align="center">hhh</td><td align="center">iii</td><td align="center">000</td></tr></tbody></table></li><li><p>总结</p><p><strong>-:表示内容和标题栏居右对齐</strong></p><p><strong>:-表示内容和标题栏居左对齐</strong></p><p><strong>:-:表示内容和标题栏居中对齐</strong></p><p><strong>内容和|之间的多余空格会被忽略，每行第一个|和最后一个|可以省略</strong></p><p><strong>-的数量至少有一个。</strong></p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 其他 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>dp刷题列表</title>
+      <link href="/2020/02/23/dp%E5%88%B7%E9%A2%98%E5%88%97%E8%A1%A8/"/>
+      <url>/2020/02/23/dp%E5%88%B7%E9%A2%98%E5%88%97%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h6 id="将做过的感觉不错的动态规划的题目在这里整理一下"><a href="#将做过的感觉不错的动态规划的题目在这里整理一下" class="headerlink" title="将做过的感觉不错的动态规划的题目在这里整理一下"></a>将做过的感觉不错的动态规划的题目在这里整理一下</h6><a id="more"></a><ul><li><p>基础dp</p><table><thead><tr><th align="left">题目</th><th>名称</th></tr></thead><tbody><tr><td align="left">HDU2018</td><td><a href="https://vjudge.net/problem/HDU-2018" target="_blank" rel="noopener">母牛的故事</a></td></tr></tbody></table></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 刷题列表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一些软件安装遇到的问题</title>
+      <link href="/2020/02/17/%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2020/02/17/%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h5 id="总结一下安装软件的问题以及如何使用一些软件"><a href="#总结一下安装软件的问题以及如何使用一些软件" class="headerlink" title="总结一下安装软件的问题以及如何使用一些软件"></a>总结一下安装软件的问题以及如何使用一些软件</h5><a id="more"></a><p>1、Anaconda：</p><ul><li><strong>Prompt</strong>  是设置了Anaconda 路径环境变量的命令提示行。</li><li><strong>conda</strong>  包管理器，各种命令可以创建、查看环境及其安装包的列表</li><li><strong>IPython</strong>  交互式解释器</li><li><strong>Spyder</strong>  IDE</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 其他 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL安装问题总结</title>
+      <link href="/2020/02/16/MySQL%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+      <url>/2020/02/16/MySQL%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h5 id="总结一下在安装MySQL时遇到的一些问题"><a href="#总结一下在安装MySQL时遇到的一些问题" class="headerlink" title="总结一下在安装MySQL时遇到的一些问题"></a>总结一下在安装MySQL时遇到的一些问题</h5><a id="more"></a><ol><li><p>配置环境变量。</p><p>用cmd运行mysql发现没有该指令，是因为没有配置相应环境变量，新建了系统变量MYSQL_HOME其中保存了mysql安装路径（直达bin目录），然后在path变量中同样添加了sql的bin目录路径。其实环境变量挺好配置，一般我失败的原因是因为在配置过程中有很多弹窗都需要点击<strong>确认</strong>,如果有遗漏就容易配置失败。</p></li></ol><ol start="2"><li><p>有关my.ini文件</p><p>在查询各种问题的时候，发现自己的安装目录下没有my.ini文件，一度怀疑自己没安上。。后来一篇博客上提示my.ini文件保存在<strong>ProgramData</strong>文件夹中，然后复制回了安装目录<strong>（Program Files\MySQL\MySQL Server x.y）</strong>…..这波操作是有点骚。。</p><p>my.ini是mysql的配置文件。</p></li></ol><ol start="3"><li><p>再次在cmd中运行mysql命令</p><p>再次运行的时候出现的错误问题是</p><blockquote><p> <strong>ERROR 1045 (28000): Access denied for user ‘ODBC’@’localhost’ (using password: NO)</strong></p></blockquote><p>好像就是没有进行密码登录，调用指令<strong>mysql -u root -p</strong><br>会提示密码输入，输入后即<strong>Welcome to the MySQL monitor.</strong></p></li></ol><ol start="4"><li><p>mysql的两个 配置参数</p><p>basedir 参数：指定了mysql的生成路径，即输入“mysqld install”生成文件<br>datadir 参数：指定了数据库文件的存放路径（也就是今天改了一上午的玩意儿……）</p></li></ol><ol start="5"><li><p>更改数据库文件的存放路径：就是更改datadir参数，注意因为管理员权限，文件不能随便更改，需要在别的地方更改后复制粘贴到相应文件夹中。更改过程需要将mysql服务器关闭。</p></li><li><p>更改数据库文件存放路径后更重要的是，当前目录下数据库的初始化（实测这种做法相当于恢复出厂设置，之前的数据库操作是没有初始化的，所以慎用，还需继续学习）</p></li></ol><ol start="7"><li><p>更改数据库文件存放路径基本过程（win10管理员模式下）：   </p><ul><li><p>关闭数据库服务</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></li><li><p>更改my.ini文件中datadir的配置</p></li><li><p>移除原mysql服务</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove mysql</span><br></pre></td></tr></table></figure></li><li><p>初始化data文件，程序会自动创建</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --initialize-insecure</span><br></pre></td></tr></table></figure><p>会出现一种报错</p><blockquote><p>Failed to find valid data direatory.</p></blockquote><p>出现这种错误的情况有很多，可能是文件夹路径没有写准确等等。对于我来说，我出现的问题是需要设置user，即</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure><p>–user的作用是使用哪个用户来运行mysql server，好像其他的用户没有一定的访问权限。</p><p><strong>注意</strong> ：</p><p>–initialize 表示的是初始化，会更改原root的密码</p><p>-insecure 表示的是初始化后密码为空，若没有，则会随机生成密码，此时需要及时找到随机生成的密码。</p></li><li><p>在路径下出现Data文件夹则初始化成功</p></li><li><p>生成mysql服务</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install</span><br></pre></td></tr></table></figure></li><li><p>启动mysql服务</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></li></ul></li></ol><ol start="8"><li><p>修改用户登录密码</p><p>实质是操作mysql数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql</span><br><span class="line">ALTER USER &#39;name&#39;@&#39;localhost&#39; IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY &#39;new password&#39;;</span><br></pre></td></tr></table></figure></li></ol><ol start="9"><li>–console 可以显示运行情况，会在cmd中显示错误内容，而不需自己再去打开相应错误文件。u1s1，一定要学会看错误文件呀，虽然网上有教程，但毕竟需要具体问题具体解决。</li></ol><ol start="10"><li><p>一直以为mysql只能通过命令行来运行，后来查了一下可以用navicat，有图形化的界面可以管理数据库。navicat是需要注册激活，目前最新版15没有找到激活方法，所以用的是12，以下是教程链接：</p><p><a href="https://blog.csdn.net/niejiangshuai/article/details/87874999" target="_blank" rel="noopener">https://blog.csdn.net/niejiangshuai/article/details/87874999</a></p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>学习计划-01-22修改</title>
+      <link href="/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/"/>
+      <url>/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/</url>
+      
+        <content type="html"><![CDATA[<h3 id="学习计划（20-01-22修改）"><a href="#学习计划（20-01-22修改）" class="headerlink" title="学习计划（20-01-22修改）"></a>学习计划（20-01-22修改）</h3><p>  回到家里已经好几天了，是时候安排假期的学习了</p><a id="more"></a><ul><li><p>首先是关于数据结构与算法，在经过<del>不断挑选</del>深思熟虑之后最终决定先以《数据结构与算法c语言实现》复习数据结构，以《算法基础》来学习算法。</p><p>数据结构是上学期的学习内容，但个人感觉掌握的并不扎实，理解的也不到位，重点是自己上学期的代码量实在太少。假期决定整体复习一下数据结构，重点在于各类数据结构的代码实现，其实本想使用c++语言版，但感觉对个人而言还是有一定难度。如果有时间，希望能使用c++实现每种数据结构。</p><p>算法在暑假集训有了初步的认识感知，但没有系统学习过，其实想学习的算法的一大目的是因为三月份的蓝桥杯比赛，希望自己能拿到一个好成绩，目前选择《算法基础》入门，回校打算学习《算法》第四版。</p><p>下面说一下安排叭：</p><ol><li>最多一周，回顾基础的数据结构，包括线性数据结构、树形数据结构、还有其他的一些数据结构，基础操作代码实现。配套辅以洛谷的专题练习，以及leetcode中的相应题目。STL也要学喽。（截至01-31）</li><li>《算法基础》，复习数据结构的时候每天阅读一章，一周结束后回来刷题，定量一下每种思想至少7题吧。</li></ol></li><li><p>然后是编程语言学习，要学的有python和c#</p><ol><li>Python就是把《py从入门到实践》看完写完</li><li>c#目前有电子版《head first c#》看完写完</li></ol></li><li><p>然后是编程练习</p><ol><li>蓝桥杯每天10个题（暂定），难的话每天5个题，3h，晚上写感想</li><li>洛谷按照板块刷题</li></ol></li></ul><hr><p><em>先这样吧</em><br><em>2020-01-22 修改</em></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2020-1-17</title>
+      <link href="/2020/01/17/2020-1-17/"/>
+      <url>/2020/01/17/2020-1-17/</url>
+      
+        <content type="html"><![CDATA[<h3 id="2020-1-17小记"><a href="#2020-1-17小记" class="headerlink" title="2020-1-17小记"></a>2020-1-17小记</h3><p>  腊月二十三， 北方小年，终于踏上回家的征程。在火车上读诗，读一会儿睡一会儿，醒了继续读，好不惬意。从前觉得很长的七个多小时竟也就这样慢慢打发过去了。可能是因为早车吧，难得的周围的座位人很少，旁边的座位从第二站过后倒是再也没有人坐过。几个同省的人上车，方言有一定的熟悉感，向北走的路程中，时不时能看到窗外的雪景，车里暖洋洋的，就这样也就回了家。</p><a id="more"></a><p>  小半年了吧，七月底就回了学校，除了自己的房间，自己在家里的痕迹也越来越少。果然啊，没有什么是能留住的，我们能抓住的，其实只有现在。这么简单的道理，竟也是最近才变得清晰起来。和同学讨论存储问题，他问，手机照片那么多，为什么不直接导进硬盘里，我说，还没有云备份。因为从前家里电脑硬盘损坏，也带走了数码相机的记忆。从此备两份，本地电脑与百度网盘。可是当我发出文字我才想到，云盘，也不过是一堆数据罢了，哪一天百度想要关闭网盘了，也不过是留不住罢了。这样看来，云盘仿佛比本地更为脆弱，本地的好歹掌握在自己手中，云上的，早被控制在他人手里罢了。</p><p>  我真的是一个很容易纠结的人，占有欲强，总想要留住那些想要留住的东西，紧紧握住，后来随着时间的流逝，也被慢慢遗忘在记忆的角落。这个过程自己也想不明白，不过是未来某天的日子里，看到什么熟悉的东西，或是听到什么熟悉的旋律，开启某段尘封已久的记忆，蓦然回首，发现已经走了好远好远。</p><p>  <strong>人生最深沉的悲剧不在于蓦然发生，而在于蓦然回首</strong></p><p>  早上从书里看到的这一句话。这篇故事讲述的是桂冠诗人弗罗斯特，讲述的主题是选择。选择，一个始终困扰我的词语。我畏惧选择，甚至不愿面对任何选择。从小了说，我厌烦购物时的货比三家，只是毕竟还是普通阶级，能省下的还是要省；能交给他人的选择，更愿意把权利让给对方。往大了说，那些只能由自己做出的选择，总是不到最后一刻不能下定决心，最后一刻的决心也是摇摇晃晃，只要有人稍加劝导，马上能够放弃的那种。为什么这么惧怕选择呢？一则是因为没有真正符合自己心意的选择吧，一方面是因为自己的野心配不上自己的能力，面对的选择也都不是自己想要的，另一方面，不过是自己的贪婪罢了，总觉得最好的选择是自己没有选择的，什么都想要，什么都失掉。</p><p>  <strong>选择的同义词从来都是放弃</strong></p><p>  选择总会意味着放弃另一或者多方面的选择，因为不甘放弃，所以畏惧选择。<br>  可我们总要在选择中成长，条条大路通罗马，想要去的远方，曲折一点又有何妨。<br>  只是没有什么是留得住的，留不住的就放手吧。抓住只能抓住的现在吧<br>  <em>present is a present</em></p><p>  这里是圆。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 嗯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>诗的时光书</title>
+      <link href="/2020/01/17/%E8%AF%97%E7%9A%84%E6%97%B6%E5%85%89%E4%B9%A6/"/>
+      <url>/2020/01/17/%E8%AF%97%E7%9A%84%E6%97%B6%E5%85%89%E4%B9%A6/</url>
+      
+        <content type="html"><![CDATA[<p>在火车上阅读借了好久的《诗的时光书》，很多诗句挺喜欢的。</p><p>摘抄在下面。</p><p>伟大的文学尽管会道出悲剧的深刻，但也不会忘记昭示梦想的可贵。</p><a id="more"></a><blockquote><p><strong>凤凰</strong><br>    ——艾吕雅<br><em>我是你路上最后一个过客<br>最后一个春天，最后一场雪<br>最后一次求生的战争</em></p><p><em>我们永远背向西方<br>   一切都披上了曙光的色彩</em></p></blockquote><blockquote><p><strong>鲁拜集  第二十九首</strong><br>Into the universe, and why not knowing<br>Nor Whence, like Water willy nilly flowing<br>And out of it, as Wind along the Waste<br>I know not Whither, willy nilly blowing</p><p><em>我像流水不由自主地来到宇宙<br>不知何来，也不知何由<br>像荒漠之风不由自主地飘去<br>不知何往，也不能停留</em></p></blockquote><p>[未完待续]</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 摘抄 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>写在开头</title>
+      <link href="/2020/01/16/%E5%86%99%E5%9C%A8%E5%BC%80%E5%A4%B4/"/>
+      <url>/2020/01/16/%E5%86%99%E5%9C%A8%E5%BC%80%E5%A4%B4/</url>
+      
+        <content type="html"><![CDATA[<h3 id="ABOUT-ME"><a href="#ABOUT-ME" class="headerlink" title="ABOUT ME"></a>ABOUT ME</h3><p>June，六月，也是我的英文名。这是自己搭建的第一个博客，很久没有在本地写markdown文件了，忘记了很多语法，写出来效果是什么也不敢保证。感觉有了博客就像有了自己的一个“云”家一样，什么都可以说，随心所欲。现在的小家只是有一个雏形，很多配置都还没有，慢慢地一点点填满，成为想要的样子。</p><a id="more"></a><hr><p>本来是想借助CSDN的博客，没事写写做题题解，写写学习感悟，写写实验流程，这个博客也是主要以学习为主吧，毕竟自己还是差的太远了，感觉不知不觉又荒废了一年时间，不过慢慢地很多东西倒是明了了起来，只是时间成本有点高，所以未来必须加倍努力。</p><hr><p>应该还会再写点自己的一些奇怪的ideas和feelings吧</p><p>反正，我的地盘我做主哈哈哈哈</p><p>这里是圆。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 嗯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/01/16/hello-world/"/>
+      <url>/2020/01/16/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>

@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: CS - June</title>
+    <title>人工智能学习笔记__02 - June</title>
+  
+    <meta name="keywords" content="人工智能">
   
   
 
@@ -297,25 +297,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -325,11 +312,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/">
-      学习计划-01-22修改
+  <h1 class="title">
+    <a href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/">
+      人工智能学习笔记__02
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -357,12 +344,10 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 22, 2020</p>
+    <p>发布于：Jun 27, 2020</p>
   </a>
 </div>
 
-            
-          
             
           
             
@@ -379,126 +364,234 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="学习计划（20-01-22修改）"><a href="#学习计划（20-01-22修改）" class="headerlink" title="学习计划（20-01-22修改）"></a>学习计划（20-01-22修改）</h3><p>  回到家里已经好几天了，是时候安排假期的学习了</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <h3 id="regression-回归"><a href="#regression-回归" class="headerlink" title="regression 回归"></a>regression 回归</h3><h5 id="linear-model-线性模型"><a href="#linear-model-线性模型" class="headerlink" title="linear model 线性模型"></a>linear model 线性模型</h5><p>1、设计模型</p>
+<p>2、评价确定的参数是否合适，利用Loss function L，损失来评价</p>
+<p>3、通过数据训练模型training data</p>
+<p>4、testing data计算ERROR</p>
+<p>挑选最好的function，也就是使得损失最小的function</p>
+<p>计算方法：<strong>梯度下降Gradient Descent</strong>，寻找L的最低点</p>
+<ul>
+<li>随机选取初始点W0</li>
+<li>计算W0对L的微分，切线斜率，判断w0的值如何变动（取决于微分与learning rate），w0-》w1</li>
+<li>反复执行第二步</li>
+<li>最后找出的是局部最优解，不一定全局最优（linear上不存在这个问题。没有局部最优解）</li>
+</ul>
+<p>5、优化模型：再设计、再训练、再评价，模型由简单到复杂</p>
+<p>model越来越复杂，training data 越来越匹配，但testing data表现不一定  ——》overfitting 过拟合，所以要选择合适的model</p>
 
-          </div>
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-28T19:55:37+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 28, 2020</p>
+  </a>
+</div>
+
         
       
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>人工智能</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://junewang0614.github.io/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/&title=人工智能学习笔记__02 - June&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://junewang0614.github.io/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/&title=人工智能学习笔记__02 - June&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://junewang0614.github.io/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/&title=人工智能学习笔记__02 - June&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
   </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/'>
+                <p class='title'>人工智能学习笔记__01<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>概述Machine learning 三步骤
+框架：
+
+定义中英对照表
+
+
+English
+Chinese
+
+
+
+Reinforcement learning
+强化学习
+
+
+Supervised...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
   
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-    
-  
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '人工智能学习笔记__02',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://c-ssl.duitang.com/uploads/item/201409/03/20140903184335_Ae4Nn.jpeg'/>
-        </a>
-      
-    
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/xaoxuu"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
 
   
     
     
 
-  
 
-  
-    
-    
-  
 
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/CS/" style="font-size: 14px; color: #999">CS</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/SQL/" style="font-size: 14px; color: #999">SQL</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 24px; color: #555">人工智能</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 24px; color: #555">其他</a> <a href="/tags/%E5%88%B7%E9%A2%98%E5%88%97%E8%A1%A8/" style="font-size: 14px; color: #999">刷题列表</a> <a href="/tags/%E5%97%AF/" style="font-size: 24px; color: #555">嗯</a> <a href="/tags/%E5%A1%AB%E8%AF%8D%E5%90%91/" style="font-size: 14px; color: #999">填词向</a> <a href="/tags/%E6%91%98%E6%8A%84/" style="font-size: 14px; color: #999">摘抄</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#regression-回归"><span class="toc-text">regression 回归</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#linear-model-线性模型"><span class="toc-text">linear model 线性模型</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
 
   
 
@@ -714,6 +807,60 @@
 
 
 
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 

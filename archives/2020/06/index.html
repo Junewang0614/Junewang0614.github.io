@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: CS - June</title>
+    <title>Archive: 2020/6 - June</title>
   
   
 
@@ -70,7 +70,75 @@
 
 <body>
   
-  <div id="loading-bar-wrapper">
+  <div class="cover-wrapper">
+    
+      <cover class='cover  half'>
+        <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">June's blog</p>
+    
+    
+      <p class="subtitle">Fearless</p>
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/getting-started/"
+                
+                
+                id="https:volantisjsorggetting-started">
+                <i class='fas fa-book fa-fw'></i>文档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/archives/"
+                
+                
+                id="https:volantisjsorgarchives">
+                <i class='fas fa-rss fa-fw'></i>博文
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://github.com/xaoxuu/hexo-theme-volantis/"
+                
+                  rel="external nofollow noopener noreferrer"
+                
+                
+                  target="_blank"
+                
+                id="https:githubcomxaoxuuhexo-theme-volantis">
+                <i class='fas fa-file-code fa-fw'></i>源码
+              </a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </cover>
+    
+    <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -291,20 +359,21 @@
 
 <script>setLoadingBarProgress(40);</script>
 
+  </div>
 
 
-  <div class="l_body nocover">
+  <div class="l_body">
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list ">
     
       
+        
+          
         
           
         
@@ -326,8 +395,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/">
-      学习计划-01-22修改
+    <a href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/">
+      人工智能学习笔记__02
     </a>
   </h2>
 
@@ -357,7 +426,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 22, 2020</p>
+    <p>发布于：Jun 27, 2020</p>
   </a>
 </div>
 
@@ -382,16 +451,213 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="学习计划（20-01-22修改）"><a href="#学习计划（20-01-22修改）" class="headerlink" title="学习计划（20-01-22修改）"></a>学习计划（20-01-22修改）</h3><p>  回到家里已经好几天了，是时候安排假期的学习了</p>
+        <h3 id="regression-回归"><a href="#regression-回归" class="headerlink" title="regression 回归"></a>regression 回归</h3><h5 id="linear-model-线性模型"><a href="#linear-model-线性模型" class="headerlink" title="linear model 线性模型"></a>linear model 线性模型</h5><p>1、设计模型</p>
+<p>2、评价确定的参数是否合适，利用Loss function L，损失来评价</p>
+<p>3、通过数据训练模型training data</p>
+<p>4、testing data计算ERROR</p>
+<p>挑选最好的function，也就是使得损失最小的function</p>
+<p>计算方法：<strong>梯度下降Gradient Descent</strong>，寻找L的最低点</p>
+<ul>
+<li>随机选取初始点W0</li>
+<li>计算W0对L的微分，切线斜率，判断w0的值如何变动（取决于微分与learning rate），w0-》w1</li>
+<li>反复执行第二步</li>
+<li>最后找出的是局部最优解，不一定全局最优（linear上不存在这个问题。没有局部最优解）</li>
+</ul>
+<p>5、优化模型：再设计、再训练、再评价，模型由简单到复杂</p>
+<p>model越来越复杂，training data 越来越匹配，但testing data表现不一定  ——》overfitting 过拟合，所以要选择合适的model</p>
+
       
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/01/22/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92-01-22%E4%BF%AE%E6%94%B9/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/">
+      人工智能学习笔记__01
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 25, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
         </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p>
+<p>框架：</p>
+<p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01%5C01.png" alt="01"></p>
+<h4 id="定义中英对照表"><a href="#定义中英对照表" class="headerlink" title="定义中英对照表"></a>定义中英对照表</h4><table>
+<thead>
+<tr>
+<th align="center">English</th>
+<th align="center">Chinese</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Reinforcement learning</td>
+<td align="center">强化学习</td>
+</tr>
+<tr>
+<td align="center">Supervised learning</td>
+<td align="center">监督学习</td>
+</tr>
+<tr>
+<td align="center">Reinforcement learning</td>
+<td align="center">无监督学习</td>
+</tr>
+<tr>
+<td align="center">linear</td>
+<td align="center">线性</td>
+</tr>
+<tr>
+<td align="center">Network Architecture</td>
+<td align="center">网络架构</td>
+</tr>
+<tr>
+<td align="center">Gradient Descent</td>
+<td align="center">梯度下降</td>
+</tr>
+<tr>
+<td align="center">Adversarial Attack</td>
+<td align="center">对抗攻击</td>
+</tr>
+<tr>
+<td align="center">Explainable AI</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Network Compression</td>
+<td align="center">网络压缩</td>
+</tr>
+<tr>
+<td align="center">Anomaly Detection</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Transfer Learning</td>
+<td align="center">迁移学习</td>
+</tr>
+<tr>
+<td align="center">Meta learning</td>
+<td align="center">元学习</td>
+</tr>
+<tr>
+<td align="center">life-long learning</td>
+<td align="center">终身学习</td>
+</tr>
+<tr>
+<td align="center">Regression</td>
+<td align="center">回归</td>
+</tr>
+<tr>
+<td align="center">parameter</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">feature</td>
+<td align="center">特征</td>
+</tr>
+<tr>
+<td align="center">optimal</td>
+<td align="center">最优的</td>
+</tr>
+<tr>
+<td align="center">convex</td>
+<td align="center">凸函数</td>
+</tr>
+<tr>
+<td align="center">overfitting</td>
+<td align="center">过拟合</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
       
     
   </section>
@@ -411,8 +677,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -597,6 +862,14 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
+
+
+
+
+	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+	
+
+	
 
 
       <script>setLoadingBarProgress(60);</script>
