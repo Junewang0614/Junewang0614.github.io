@@ -632,63 +632,15 @@
 <p>3、通过数据训练模型training data</p>
 <p>4、testing data计算ERROR</p>
 <p>挑选最好的function，也就是使得损失最小的function</p>
-<p>计算方法：<strong>梯度下降Gradient Descent</strong>，寻找L（loss）的最低点</p>
-<ul>
-<li>随机选取初始点W0</li>
-<li>计算W0对L的微分，切线斜率，判断w0的值如何变动（取决于微分与learning rate），w0-》w1</li>
-<li>反复执行第二步</li>
-<li>最后找出的是局部最优解，也就是微分为0的位置。不一定全局最优（linear上不存在这个问题。没有局部最优解）</li>
-<li>关于推广：一个参数推广到两个参数的时候，也就是偏微分的计算，与一个变量原理相同。</li>
-</ul>
-<p>5、优化模型：再设计、再训练、再评价，模型由简单到复杂</p>
-<p>model越来越复杂，training data 越来越匹配，但testing data表现不一定  ——》overfitting 过拟合，所以要选择合适的model</p>
-<p>适当引入feature用于分类（？），可以使模型更匹配</p>
-<p>Q:为什么我们更期待一个参数更接近0的function?</p>
-<p>A:比较平滑的，参数小可以让输入对于输出的变化不敏感。（？）</p>
-<p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/C:%5CUsers%5Cydjun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200705193554878.png" alt="image-20200705193554878"></p>
-<p>1、bias的影响：看结果集合与中心的偏离程度 （模型的复杂程度影响，越复杂，bias越小）</p>
-<p>样本均值和总体均值的关系（？）———无偏估计</p>
-<p>样本均值的期望等于总体均值———bias小</p>
-<p>2、variance的影响：看结果集的分散程度（模型的复杂程度会影响variance,越复杂，variance越大)</p>
-<p>样本方差和总体方差的关系（？）———有偏估计</p>
-<p><strong>简单model受到样本数据的影响比较小</strong></p>
-<p><strong>确定一种model，相当于确定了一种范围，模型越复杂，范围越大，范围越大。点更容易分散</strong></p>
-<p>两者越低越好，寻找平衡</p>
-<p>variance大：overfitting（training拟合好，但是test拟合不好）————增加data/regularization正则化</p>
-<p>bias大：underfitting（training拟合不好）————重新设计model</p>
-<p>更复杂：更多的feature，更高的阶层</p>
-<h5 id="Gradient-Descent-梯度下降"><a href="#Gradient-Descent-梯度下降" class="headerlink" title="Gradient Descent 梯度下降"></a>Gradient Descent 梯度下降</h5><ul>
-<li><p>过程：</p>
-<p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C01.jpg" alt="01"></p>
-<p>其中<img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C02.jpg" alt="02"> 即为梯度，因为前面有了负号，所以点的移动总是向着梯度下降的方向进行，因而叫做梯度下降。</p>
-</li>
-<li><p>关于learning rate</p>
-<p>太小：梯度下降处理速度慢</p>
-<p>太大：直接错过min值</p>
-<p>措施：关注前几次的参数updates，画图(如下图所示），可以提前发现太大的learning rate，当loss值可以稳定下降的时候，rate才相对合适</p>
-<p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C03.jpg" alt="03"></p>
-<p><strong>调整方法</strong>：可以将learning rate 成为t（次数）的函数。learning rate的变化规律一般为：值可以先很大，方便我们快速定位到最小值附近，然后值减小，慢慢靠近最低值，防止因为值过大错过最低值。</p>
-<p><strong>注意！learning rate也是要随着不同的参数而变化的，不是一成不变的，而且对于同一时间段的多种参数（如w，b等），learning rate 依旧有差别</strong></p>
-<h6 id="Adagrad："><a href="#Adagrad：" class="headerlink" title="Adagrad："></a>Adagrad：</h6><p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C04.jpg" alt="04"></p>
-<p><strong>g是对应参数关于x的微分或偏微分，所以η是关于下降次数(t)的函数，σ是关于对应参数微分(g)的函数，由此得出的learning rate可以和t与g相关</strong></p>
-<p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C05.jpg" alt="05"></p>
-</li>
-</ul>
-<h6 id="Stochastic"><a href="#Stochastic" class="headerlink" title="Stochastic"></a>Stochastic</h6><p>只选择某一个example的Loss值，通过一个example进行梯度下降，得到相应参数。</p>
-<ul>
-<li>好处：速度快，同样的起始点，可以update参数的次数变多了，计算内容少，更快。</li>
-</ul>
-<h6 id="Feature-Scaling-特征缩放"><a href="#Feature-Scaling-特征缩放" class="headerlink" title="Feature Scaling   特征缩放"></a>Feature Scaling   特征缩放</h6><p>让不同的特征，有相同的比例，统一到一定的范围内。让每个参数对目标的影响程度相似。这样子learning rate也能够相对平稳一些。</p>
-<ul>
-<li><p>方法：</p>
-<p><img src="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/C:%5CGIT%5Cblog%5Cmyblog%5Csource_posts%5C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02%5C06.jpg" alt="06"><br>mean：均值，standard deviation：标准差</p>
-</li>
-</ul>
-<h6 id="Theory-理论基础"><a href="#Theory-理论基础" class="headerlink" title="Theory 理论基础"></a>Theory 理论基础</h6><p>泰勒级数，泰勒展开</p>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -769,7 +721,7 @@
       
         <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p>
 <p>框架：</p>
-<p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01%5C01.png" alt="01"></p>
+<p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/01.png" alt="01"></p>
 <h4 id="定义中英对照表"><a href="#定义中英对照表" class="headerlink" title="定义中英对照表"></a>定义中英对照表</h4><table>
 <thead>
 <tr>
