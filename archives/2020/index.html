@@ -461,30 +461,15 @@
 <ul>
 <li>step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set</li>
 </ul>
-<h5 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a>step 1</h5><p><strong>链接方式介绍：</strong></p>
-<ul>
-<li>fully connect feedforward network<br>（全连接前馈网络）<br><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/02.png" alt="02"></li>
-</ul>
-<p>  特点：</p>
-<ol>
-<li><p>input传递是从低级的layer向高级的layer传递，所以是forward</p>
-</li>
-<li><p>对于低级layer的每一个神经元（neuron）得到的对应的output结果，要传给下一层的每一个neuron，这则是所谓的Fully，全连接。</p>
-<p>Deep = many hidden layers（很多的隐藏层）</p>
-<p>一个layer的运算可以通过一个矩阵表示。整个全连接网络可以用矩阵的计算表示，好处在于矩阵运算可以通过GPU加速。<br><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/02.png" alt="03"><br>里面的正方形是矩阵<br>长方形也是，但同时也是一个向量。</p>
-<p><strong>hidden layers中，主要是将原始的feature进行一定的变换，使得在最后的output层可以比较容易的得到好的模型</strong></p>
-</li>
-</ol>
-<p>Q:如何决定层数、决定每层的神经元数、决定链接方式？（好的结构里面存在好的function）</p>
-<p>A:直觉、经验、尝试等</p>
-<h5 id="step-2"><a href="#step-2" class="headerlink" title="step 2"></a>step 2</h5><p>定义function的好坏，利用training data，同逻辑回归的方式。利用梯度下降的方式，最小化Loss函数，得到相应的function和它的参数集。</p>
-<h5 id="step-3"><a href="#step-3" class="headerlink" title="step 3"></a>step 3</h5><p>选择好的function</p>
-<h4 id="WHY-DEEP"><a href="#WHY-DEEP" class="headerlink" title="WHY DEEP?"></a>WHY DEEP?</h4><p>问题：为什么是增加层数layer，而不是在中间层不断增加神经元？实质是在<strong>参数相同</strong>的情况下，层数更多的（thin）网络结构表现更好（deep），还是一层内神经元更多的（fat）网络结构表现更好？</p>
-<p>结果表明，层数更多比单单一层更多神经元的结构表现效果好很多。<br>原因：deep是在模块化网络。模块化的好处是能够减少冗余、重复利用。对于deep learning 来讲， 效果则是<strong>可以用比较少的data也能到的好的模型</strong>。底层的layer相当于basic classifier，高层的模型建立都是基于底层。<strong>模块化是机器自动从data学习而来。（？）</strong></p>
-<h4 id="语音中的模块化运用"><a href="#语音中的模块化运用" class="headerlink" title="语音中的模块化运用"></a>语音中的模块化运用</h4><h5 id="语音辨识过程"><a href="#语音辨识过程" class="headerlink" title="语音辨识过程"></a>语音辨识过程</h5>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -568,84 +553,15 @@
 <p>概率知识：贝叶斯公式（后验概率），高斯分布</p>
 <p>伯努利分布 == 二项分布</p>
 <p>高斯分布 == 正态分布</p>
-<h4 id="一般过程"><a href="#一般过程" class="headerlink" title="一般过程"></a>一般过程</h4><p>假设一个机率模型</p>
-<p>1、training data 估测一个gaussian distribution（高斯分布结果），通过高斯分布计算出新的x在范围内被选择出来的几率。</p>
-<p>2、不同的高斯分布对应不同的likelihood（可能性），找到分布中，面对training data数据，标记概率（likelihood）是最大的，选择这样的分布，得到相应的参数。</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/02.png" alt="02"></p>
-<p>穷举各种μ与ξ的值，然后通过图片方法计算，选择最大可能性的一组参数</p>
-<p>3、每个class都要计算第二步，得到相应的（μ，ξ)。</p>
-<p>4、分类计算，计算输入的x来自于不同的class的几率</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/03.png" alt="03"></p>
-<p>5、效果不好的时候（比如二维空间分类分不出来），可以提高feature的维度，即增加输入向量的长度。（最后计算效果不好！！:triumph:）</p>
-<h4 id="改良处理"><a href="#改良处理" class="headerlink" title="改良处理"></a>改良处理</h4><p>1、减少模型参数，参数越多越容易overfitting，让不同的class共用一个ξ，使得likelihood最大。</p>
-<p>计算参数方式：μ的计算同上，ξ的计算不同，需要加权计算一下，likelihood函数也不同,如图下</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/04.png" alt="04"></p>
-<p>相同的ξ，让boundary变成了直线，这也是linear model。</p>
-<p>计算后得出准确率高了很多。</p>
-<h4 id="阶段总结——概率模型做（二）分类"><a href="#阶段总结——概率模型做（二）分类" class="headerlink" title="阶段总结——概率模型做（二）分类"></a>阶段总结——概率模型做（二）分类</h4><p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/05.png" alt="05"></p>
-<h4 id="相关数学知识（扩展）"><a href="#相关数学知识（扩展）" class="headerlink" title="相关数学知识（扩展）"></a>相关数学知识（扩展）</h4><p>1、linear model的导出过程：</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/06.png" alt="06"></p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/07.png" alt="07"></p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/08.png" alt="08"></p>
-<h3 id="logistic-Regression"><a href="#logistic-Regression" class="headerlink" title="logistic Regression"></a>logistic Regression</h3><p>回顾分类设定的模型：</p>
-<p>这是一个逻辑回归函数</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/09.png" alt="09"></p>
-<p>2、通过训练集，选择出最合适的w,b参数：定义function的好坏</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/10.png" alt="10"><br>L是发生训练集所展现分类的概率函数，假设每个元素属于某一类都是相互独立的，所以计算L的方式是将计算出的概率（f函数）相乘。让L最大值所对应的w,b的值，就是我们模型中需要找出的w,b的值。</p>
-<p>++++++++++++++++++++</p>
-<hr>
-<p><em>下面是数学相关的L函数的化简整理</em></p>
-<p>理解这几条：</p>
-<ul>
-<li><p>因为L是累乘的结果，为了方便计算，取ln变成累加，再整体取符号，化取最大值为取最小值。</p>
-</li>
-<li><p>引入y^，（二分类中）y取1表示输入class1，取0表示属于class2.</p>
-</li>
-<li><p>将每一项的形式都通过y^的引入而同一成相同形式</p>
-</li>
-<li><p>统一出来的相同形式是两个二项分布的交叉熵，其中交叉熵越接近0代表两个分布越相同，我们想要的就是交叉熵尽可能接近0.</p>
-</li>
-</ul>
-<p>以下是ppt讲义部分：</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/11.png" alt="11"></p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/12.png" alt="12"></p>
-<p>其中y的取值只有1与0，f因为是个概率函数取值在0-1之间，所以方括号内的部分一定是小于零的，加上外面的负号会大于0，所以方括号越趋近于零，一个是代表两个分布越接近，另一个也是代表-lnL的值趋向最小，表示模型越来越匹配，所以交叉熵越趋近于0越好。</p>
-<p>下面的H是交叉熵的计算方法。</p>
-<p>于是我们可以得到逻辑回归（二分类）的判定模型好坏的函数L。</p>
-<hr>
-<hr>
-<h4 id="逻辑回归与线性回归的对比"><a href="#逻辑回归与线性回归的对比" class="headerlink" title="逻辑回归与线性回归的对比"></a><strong>逻辑回归与线性回归的对比</strong></h4><p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/13-1.png" alt="13"></p>
-<p>Q:为什么不能直接使用线性回归的L函数（square error）当作逻辑回归的L函数，线性的相对而言更简单易算？</p>
-<p>A：利用梯度下降的方式逼近最合适的w的时候，会出现无法区别距离实际值到底很近还是很远的状况，在梯度下降的时候会卡住，不容易得到好的结果：</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/16.png" alt="16"></p>
-<p>3、通过Loss函数计算最佳w，b的方法：<br>数学问题，对Loss函数对w求偏微分，通过一系列变换，得到一个直观的结果。然后通过梯度下降的方法，求得loss的最低点w的值<br><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/14.png" alt="14"></p>
-<p><strong>总结对比</strong></p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/15.png" alt="15"></p>
-<h4 id="生成模型和判别模型对比（有些不懂）"><a href="#生成模型和判别模型对比（有些不懂）" class="headerlink" title="生成模型和判别模型对比（有些不懂）"></a>生成模型和判别模型对比（有些不懂）</h4><p>（暂时理解）生成模型是最初的分类模型，计算ξ、μ参数的那个模型（假定过分布服从正态分布）</p>
-<p>判别模型就是上面的概率模型，直接计算w，b参数的模型。</p>
-<p>两个模型实质是相同的，（w,b),(μ，ξ)也都有一定对应关系，但是计算出的结果会发现参数的结果不同，也就是求出的具体模型是不同的。原因就在于生成模型提前有过很多假设，也对模型的计算产生一定的影响。</p>
-<p>生成模型（generative model）的好处是：</p>
-<ul>
-<li>training data很少的时候，生成模型受data的影响小，有自己的假设，有时反而表现很好</li>
-<li>data可能本来存在问题的时候，因为受data影响小，所以可能表现更好。</li>
-</ul>
-<p>判别模型的好处是：</p>
-<ul>
-<li>受data影响大，所以数据足够多足够准确的时候，计算出来的模型更优。</li>
-</ul>
-<h4 id="多分类问题（三分类为例）"><a href="#多分类问题（三分类为例）" class="headerlink" title="多分类问题（三分类为例）"></a>多分类问题（三分类为例）</h4><p>（笔记记得稍微有点简单，先大体理解一下）</p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/17.png" alt="17"></p>
-<p><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/18.png" alt="18"></p>
-<h4 id="逻辑回归的限制"><a href="#逻辑回归的限制" class="headerlink" title="逻辑回归的限制"></a>逻辑回归的限制</h4><p>因为回归依旧是一条直线，所以总会存在，根本无法通过一条直线将类别分离的情况。</p>
-<p>解决方式：Feature Transformation<br>将特征值转化<br>eg:<br><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/19.png" alt="19"></p>
-<p>问题：如果找到合适的transformation？</p>
-<p>回答：交给机器</p>
-<p>进行多层的logistic regression，直到类别可以完全分开。然后将处理好的新的特征值，再进行逻辑回归，得到好的模型结果。<br><img src="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/20.png" alt="20"></p>
-<p><strong>每一个逻辑回归又叫做“神经元”（neuron），整个网络是神经网络（neural network）</strong></p>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
