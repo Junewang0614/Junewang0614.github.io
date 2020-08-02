@@ -412,9 +412,412 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+      《神经网络与深度学习》第一章 阅读笔记
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第二章-机器学习概述"><a href="#第二章-机器学习概述" class="headerlink" title="第二章 机器学习概述"></a>第二章 机器学习概述</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>1、特征 or 属性：x，特征向量</p>
+<p>2、标签 y</p>
+<p>3、数据集、训练集、测试集</p>
+<p>4、函数 f</p>
+<h3 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h3><p><img src="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%89%E8%A6%81%E7%B4%A0.png" alt="01"></p>
+<h3 id="机器学习算法类型"><a href="#机器学习算法类型" class="headerlink" title="机器学习算法类型"></a>机器学习算法类型</h3><p><img src="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%B1%BB%E5%9E%8B.png" alt="02"></p>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><p>1、准确率，错误率   准确率+错误率 = 1</p>
+<p>2、精确率和召回率（对每个类进行性能估计）</p>
+<p>模型在测试集的结果分为以下四类：</p>
+<ul>
+<li>真正例：TP，实际为c，预测为c</li>
+<li>假负例：FN，实际为c，预测为其他</li>
+<li>假正例：FP，实际为其他，预测为c</li>
+<li>真负例：TN，实际为其他，预测为其他</li>
+</ul>
+<p>精确率：所有预测为类别c(P)中正确的比例：TP<sub>c</sub>/(TP<sub>c</sub>+FP<sub>c</sub>)</p>
+<p>召回率：所有真实类别为c中正确的比例：TP<sub>c</sub>/(TP<sub>c</sub> + FN<sub>c</sub>)</p>
+<p>3、F值：综合指标，召回率和精确率的调和平均</p>
+<p><img src="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/03.png" alt="03"></p>
+<p>4、宏平均：每一类性能指标的算术平均、微平均：每一个样本的性能指标的算数平均</p>
+<p>5、交叉验证：原始数据集均分为K组不重复子集，每次选择k-1作为训练集，剩下一组作为验证集。从而进行K次训练，得到K组模型，将k个模型在各自验证集上的错误率的平均作为分类器的评价。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
+      机器学习笔记-06
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p>
+<h3 id="影像处理为例"><a href="#影像处理为例" class="headerlink" title="影像处理为例"></a>影像处理为例</h3><p>Q1：为什么可以将全连接网络里面的一些参数去掉，简化网络？</p>
+<p>A：1、每一个neural都类似于一个分类器，用以判断某些特征，特定特征的判断需要的是相对应的输入，部分的输入内容就可以决定相关特征而不需要利用所有输入进行判断。<br>2、相同的特征判断可能存在于输入的不同位置（比如两张图片中同是鸟嘴但位置不同），但此时使用相同的的neural就好，而不需要两个neural，可以让两个neural相互share参数，共用同一组参数工作。<br>3、subsampling（比如缩小）对图像的判断可能没有影响，可以通过二次抽样来减少参数的使用。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
+      机器学习笔记-05
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Backpropagation——反向传播"><a href="#Backpropagation——反向传播" class="headerlink" title="Backpropagation——反向传播"></a>Backpropagation——反向传播</h2><p>是有效计算gradient的向量的方法，因为随着网络的层数的增加，参数越来越多，向量越来越长，计算越来越复杂，使用反向传播比较高效。</p>
+<h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="chain-rule-链式法则"><a href="#chain-rule-链式法则" class="headerlink" title="chain rule 链式法则"></a>chain rule 链式法则</h4><p>用于多变量求导</p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/01.png" alt="01"></p>
+<h4 id="σ-z-函数"><a href="#σ-z-函数" class="headerlink" title="σ(z)函数"></a>σ(z)函数</h4><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/05.png" alt="05"></p>
+<h3 id="backpopagation过程"><a href="#backpopagation过程" class="headerlink" title="backpopagation过程"></a>backpopagation过程</h3><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/02.png" alt="02"></p>
+<p>梯度下降的方式是用于求得Loss函数的最小值，loss函数是一个求和函数，取决于每一个l的值，所以重点在于计算w参数对C的微分。</p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/03.png" alt="03"></p>
+<p>(其中C就是上图的小l)</p>
+<p>求w对C的微分，可以通过链式法则分解，引入中间变量z。<br>求w对z的微分是forward pass，有图可得，w1对z的偏微分就是x1,可以以此类推，w<sub>n</sub>对z的偏微分，就是w<sub>n</sub>前面的input值。<br>求z对C的微分是backward pass</p>
+<h4 id="Forward-pass"><a href="#Forward-pass" class="headerlink" title="Forward pass"></a>Forward pass</h4><p>正如前面所述，w<sub>n</sub>对z的偏微分，就是w<sub>n</sub>前面的input值。一定是当层的、最接近的input的值，可以是来自外部输出，也可以是来自前一层网络。<br><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/04.png" alt="04"></p>
+<h4 id="Backward-pass"><a href="#Backward-pass" class="headerlink" title="Backward pass"></a>Backward pass</h4><p>考虑的是下一步发生了什么事情。</p>
+<p>引入中间变量a，使得a = σ(z)</p>
+<p>可以通过链式法则展开，得到z对C的偏微分。<br><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/07.png" alt="06"><br>其中可以看到关系可以普遍简化定义为:a会影响z’，z’’(可能还有别的z)，z’,z’’会影响c，从而有a影响了c，通过链式法则可以表示出c对a的偏微分。</p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/06.png" alt="05"></p>
+<p>第一项a对z’等的偏微分都很好算，a是作为input的层，通过forward pass可以知道，对应的是w1,w2……w<sub>n</sub>,后面那一项我们无从下手。</p>
+<p><strong>假定我们已经知道后面那一项的值，则整个式子可以进行一定的整理</strong></p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/08.png" alt="08"></p>
+<p><strong>如何计算未知的两项？ – 分类讨论</strong></p>
+<ul>
+<li><p>case 1:已经到达了output layer</p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/09.png" alt="09"></p>
+</li>
+<li><p>case 2 Not output layer</p>
+<p><strong>通过递归的方式计算，直到打倒了output 层，然后可以回溯到前面层</strong></p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/10.png" alt="10"></p>
+</li>
+</ul>
+<p><strong>实际计算方式</strong></p>
+<p>computer z对c的偏微分 from the <strong>output layer</strong>,从输出层向后计算，计算有效率。</p>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/11.png" alt="11"></p>
+<p>实际是，建立一个<strong>反向的神经网络</strong>，来计算整个的偏微分。</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>先计算ForWard pass</li>
+<li>再通过逆向网络计算 Backward pass</li>
+<li>两者相乘，最终得到了w对C的偏微分</li>
+</ul>
+<p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/12.png" alt="12"></p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/26/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+      《神经网络与深度学习》第一章 阅读笔记
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 26, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章  绪论"></a>第一章  绪论</h2><p>基本概念一览</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/07/26/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -486,7 +889,8 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h4 id="三步走："><a href="#三步走：" class="headerlink" title="三步走："></a>三步走：</h4><p><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/01.png" alt="01"></p>
+        <h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><p><strong>bilbil：P12、P14</strong></p>
+<h4 id="三步走："><a href="#三步走：" class="headerlink" title="三步走："></a>三步走：</h4><p><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/01.png" alt="01"></p>
 <ul>
 <li>step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set</li>
 </ul>
@@ -951,360 +1355,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">
-      python学习日志
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 25, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python学习中遇到的知识总结一下</p>
-<p>2020-04-25更新</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/">
-      <转>游走记忆的时间__中文填词
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 25, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《游走记忆的时间》是我很喜欢的一首歌，在不懂得韩语歌词的情况下便被吸引。初听旋律会觉得很温柔很治愈，了解了歌词的含义后又会觉得有些悲伤。想尝试自己填一下中文歌词，现在文学素养和音乐乐理都有很大的不足，不过没关系，慢慢来，人还是要有梦想的。</p>
-<p>这里有一个填的很不错的歌词，收藏下来学习一下。。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/">
-      python爬虫遇到的问题一览
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 15, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"><a href="#正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下" class="headerlink" title="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"></a>正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下</h6>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/02/23/markdown%E8%AF%AD%E6%B3%95%E4%B8%80%E8%A7%88/">
-      markdown语法一览
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Feb 23, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="总结自己新get的以及总是记不住的markdown语法"><a href="#总结自己新get的以及总是记不住的markdown语法" class="headerlink" title="总结自己新get的以及总是记不住的markdown语法"></a>总结自己新get的以及总是记不住的markdown语法</h6>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/23/markdown%E8%AF%AD%E6%B3%95%E4%B8%80%E8%A7%88/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1313,7 +1363,7 @@
       <div class="prev-next">
         
         <p class="current">
-          1 / 2
+          1 / 3
         </p>
         
           <a class="next" rel="next" href="/page/2/">

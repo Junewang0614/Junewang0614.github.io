@@ -21,7 +21,8 @@
     <meta name="keywords" content="人工智能">
   
   
-    <meta name="description" content="Deep Learning三步走：
+    <meta name="description" content="Deep Learningbilbil：P12、P14
+三步走：
 
 step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set
 ">
@@ -373,7 +374,8 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h4 id="三步走："><a href="#三步走：" class="headerlink" title="三步走："></a>三步走：</h4><p><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/01.png" alt="01"></p>
+          <h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><p><strong>bilbil：P12、P14</strong></p>
+<h4 id="三步走："><a href="#三步走：" class="headerlink" title="三步走："></a>三步走：</h4><p><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/01.png" alt="01"></p>
 <ul>
 <li>step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set</li>
 </ul>
@@ -399,7 +401,33 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
 <h5 id="step-3"><a href="#step-3" class="headerlink" title="step 3"></a>step 3</h5><p>选择好的function</p>
 <h4 id="WHY-DEEP"><a href="#WHY-DEEP" class="headerlink" title="WHY DEEP?"></a>WHY DEEP?</h4><p>问题：为什么是增加层数layer，而不是在中间层不断增加神经元？实质是在<strong>参数相同</strong>的情况下，层数更多的（thin）网络结构表现更好（deep），还是一层内神经元更多的（fat）网络结构表现更好？</p>
 <p>结果表明，层数更多比单单一层更多神经元的结构表现效果好很多。<br>原因：deep是在模块化网络。模块化的好处是能够减少冗余、重复利用。对于deep learning 来讲， 效果则是<strong>可以用比较少的data也能到的好的模型</strong>。底层的layer相当于basic classifier，高层的模型建立都是基于底层。<strong>模块化是机器自动从data学习而来。（？）</strong></p>
-<h4 id="语音中的模块化运用"><a href="#语音中的模块化运用" class="headerlink" title="语音中的模块化运用"></a>语音中的模块化运用</h4><h5 id="语音辨识过程"><a href="#语音辨识过程" class="headerlink" title="语音辨识过程"></a>语音辨识过程</h5>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><h4 id="语音中的模块化运用"><a href="#语音中的模块化运用" class="headerlink" title="语音中的模块化运用"></a>语音中的模块化运用</h4><h5 id="语音辨识初步过程"><a href="#语音辨识初步过程" class="headerlink" title="语音辨识初步过程"></a>语音辨识初步过程</h5><p>1、取语音音频，每次截取一小段并将其归类为不同的state<br>2、每一个state要进行分类，分给不同的phoneme（发音单位）（这里就用到了分类）<br>3、其中因为phoneme与前后的发音有关系，又将相同的phoneme分成不同的tri类，然后每个tri类又分为三份，理论上每一份对应一个model。<br>问题来了，这样的话model太多了，数据量根本训练不出好的模型。</p>
+<p>发现：不同的“每一份”可以共用相同的分布模型。 —- 模块化</p>
+<p>其实phoneme之间客观上也是有关系的。</p>
+<p>deep learning做法：</p>
+<ul>
+<li><p>input：acoustic feature</p>
+</li>
+<li><p>output：probability of each state</p>
+<p><strong>所有的states共用同一个DNN</strong>（深度神经网络）</p>
+<p>先研究发音方式（模块化），然后进行发音分类</p>
+</li>
+</ul>
+<p>DNN的好处（模块化）</p>
+<ul>
+<li>使用参数更有效率</li>
+</ul>
+<p>普遍性定理是，一层layer就可以将各种参数转换成想要的维度的输出，一层网络就可以表示所有的function，但是这样矮胖的网络结构是没有效率的。深层网络是比较有效率的。</p>
+<h4 id="逻辑电路类比"><a href="#逻辑电路类比" class="headerlink" title="逻辑电路类比"></a>逻辑电路类比</h4><p>1、两层逻辑电路可以表示任何的boolean function。<br>2、但没有人会这么做，因为没有效率，多层结构比较有效率，可以用比较少的逻辑门。</p>
+<p><strong>更少的逻辑门象征更少的参数需要计算，即降低overfitting的概率</strong><br><strong>逻辑电路中的道理和和深度神经网络是一样的</strong><br><strong>最终的效果是，较少的data可以训练出类似的结果</strong></p>
+<h2 id="END-TO-END-learning"><a href="#END-TO-END-learning" class="headerlink" title="END TO END learning"></a>END TO END learning</h2><p>只给机器input 与 output，让其自己进行学习训练。</p>
+<p>理论上的想法：</p>
+<p><img src="/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/04.png" alt="04"></p>
+<p>其中的function不会经过人工加工，不通过人工的之前的研究、经验，直接丢给机器，让其自主进行数据分析，功能完善。后来通过谷歌的研究发现，机器的再自主学习做出的最终结果与人类干预差不多，不会比人类知识干预要好，分析发现机器所做的学习和人类通过认知进行的数据干预处理是类似的。</p>
+<h2 id="Deep-learning的其他好处"><a href="#Deep-learning的其他好处" class="headerlink" title="Deep learning的其他好处"></a>Deep learning的其他好处</h2><ul>
+<li>有很多复杂的task，可能有的输入很类似，但是输出的结果应当是不同的；有的输入很不一样，但是输出的结果应该是相同的。想要达到这种效果，就需要让数据经过很多层次的转换。deep learning就可以实现这样的事情。</li>
+</ul>
+
           
             <div class='article_footer'>
               
@@ -437,10 +465,10 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-26T15:30:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-02T12:13:25+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 26, 2020</p>
+    <p>更新于：Aug 2, 2020</p>
   </a>
 </div>
 
@@ -467,7 +495,8 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learning三步走：
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learningbilbil：P12、P14
+三步走：
 
 step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set
 "
@@ -482,7 +511,8 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learning三步走：
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learningbilbil：P12、P14
+三步走：
 
 step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set
 "
@@ -497,7 +527,8 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learning三步走：
+          href="http://service.weibo.com/share/share.php?url=http://junewang0614.github.io/2020/07/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-04/&title=机器学习笔记-04 - June&summary=Deep Learningbilbil：P12、P14
+三步走：
 
 step1：确定网络的链接方式，确定网络结构一种连接方式可以对应一个function set
 "
@@ -523,6 +554,16 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
         
         
           <div class="prev-next">
+            
+              <a class='prev' href='/2020/07/26/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>《神经网络与深度学习》第一章 阅读笔记</p>
+                <p class='content'>第一章  绪论基本概念一览
+
+
+人工智能人工智能就是让机器人具有人类的智能。
+就是要让机器的行为看起来就像是人所表现出的智能的行为一样。
+因为“智能”较难定义，判断机器是否智能的方式则采用“图灵...</p>
+              </a>
             
             
               <a class='next' href='/2020/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03/'>
@@ -607,7 +648,7 @@ step1：确定网络的链接方式，确定网络结构一种连接方式可以
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-Learning"><span class="toc-text">Deep Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三步走："><span class="toc-text">三步走：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#step-1"><span class="toc-text">step 1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#step-2"><span class="toc-text">step 2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#step-3"><span class="toc-text">step 3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WHY-DEEP"><span class="toc-text">WHY DEEP?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#语音中的模块化运用"><span class="toc-text">语音中的模块化运用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#语音辨识过程"><span class="toc-text">语音辨识过程</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-Learning"><span class="toc-text">Deep Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三步走："><span class="toc-text">三步走：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#step-1"><span class="toc-text">step 1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#step-2"><span class="toc-text">step 2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#step-3"><span class="toc-text">step 3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WHY-DEEP"><span class="toc-text">WHY DEEP?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例"><span class="toc-text">举例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语音中的模块化运用"><span class="toc-text">语音中的模块化运用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#语音辨识初步过程"><span class="toc-text">语音辨识初步过程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑电路类比"><span class="toc-text">逻辑电路类比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#END-TO-END-learning"><span class="toc-text">END TO END learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-learning的其他好处"><span class="toc-text">Deep learning的其他好处</span></a></li></ol>
     </div>
   </section>
 
