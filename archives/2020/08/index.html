@@ -379,9 +379,186 @@
         
           
         
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/03/pythorch/">
+      pythorch
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 3, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PyTorch-Introduction"><a href="#PyTorch-Introduction" class="headerlink" title="PyTorch Introduction"></a>PyTorch Introduction</h2><h3 id="tensor张量"><a href="#tensor张量" class="headerlink" title="tensor张量"></a>tensor张量</h3><p>1、与numpy的相互转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor-&gt;numpy ：</span></span><br><span class="line">y_numpy = torch.numpy(x_tensor)</span><br><span class="line"><span class="comment">#numpy-&gt;tensor ：</span></span><br><span class="line">y_torch = torch.from_numpy(x_numpy)</span><br></pre></td></tr></table></figure>
+
+<p>2、tensor可以转变矩阵形状，只要总共的元素数不变就行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor.view</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">y = x.view(<span class="number">15</span>)</span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">5</span>)  <span class="comment"># -1所指的维度可以根据其他维度的值推出来</span></span><br><span class="line"><span class="comment">#只有一个维度可以赋值-1！</span></span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure>
+
+<p>3、</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/03/CS224n-01/">
+      CS224n-01
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 3, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="词向量表示"><a href="#词向量表示" class="headerlink" title="词向量表示"></a>词向量表示</h2><p><a href="https://www.bilibili.com/video/BV1pt411h7aT?p=2" target="_blank" rel="noopener">bilibili</a> —p2</p>
+<p>nltk</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -542,6 +719,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p>
+<p><a href="https://www.bilibili.com/video/BV1sE411K7Lw?p=15" target="_blank" rel="noopener">bilibili</a> P14</p>
       
     </div>
     

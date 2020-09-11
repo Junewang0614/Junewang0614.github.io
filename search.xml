@@ -4,6 +4,139 @@
   
     
     <entry>
+      <title>机器学习笔记-11</title>
+      <link href="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/"/>
+      <url>/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习笔记-10</title>
+      <link href="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/"/>
+      <url>/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Structured-Learning-结构化学习"><a href="#Structured-Learning-结构化学习" class="headerlink" title="Structured Learning 结构化学习"></a>Structured Learning 结构化学习</h2><p>1、应用举例</p><ul><li>语音辨识</li><li>翻译</li><li>句法分析 syntactic parsing</li><li>对象检测 object detection<br>等等<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/01.png" alt="01"></li></ul><h3 id="Unified-Framework-统一框架"><a href="#Unified-Framework-统一框架" class="headerlink" title="Unified Framework 统一框架"></a>Unified Framework 统一框架</h3><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/02.png" alt="02"></p><p>主要分为training训练和inference推断两步：</p><ul><li>training部分目的是找到F(X,Y)，训练数据x与y都是输入值，F的输出值是一个评判值，当x与y越匹配的时候，F得到的输出值越高，F是评估x与y匹配的一个函数。</li><li>inference 推断：将未知的X值输入，然后穷举所有可能的Y，将X与Y带入训练好的F函数中，使得F函数值最高的Y，即我们要找的输出。</li></ul><p>以对象检测为例<br>输入：一张图像<br>输出：想要寻找的对象所在的位置</p><h4 id="Training-训练部分"><a href="#Training-训练部分" class="headerlink" title="Training 训练部分"></a>Training 训练部分</h4><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/03.png" alt="03"><br>如上图，将图像X与框框Y随机匹配，当Y框对了对象的时候，F的值最高，当Y框了部分对象的时候，F的值偏低，当Y完全没有框对对象时，F的值最低。我们要训练的就是这样的一个F函数。</p><h4 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h4><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/04.png" alt="04"><br>输入没有接触过的图像x，穷举所有的框框Y，依次与X一起放入训练好的F函数，进行匹配，当F越高，说明Y框框正确的可能性越大（或者框出的部分中，正确的部分占比越大），取使得F最大的Y，就是我们需要的输出。</p><h3 id="统一框架中的三大问题以及解决方法"><a href="#统一框架中的三大问题以及解决方法" class="headerlink" title="统一框架中的三大问题以及解决方法"></a>统一框架中的三大问题以及解决方法</h3><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/05.png" alt="05"></p><p>以结构化线性模型为例</p><h4 id="Problem-1：F函数是一个什么样的函数"><a href="#Problem-1：F函数是一个什么样的函数" class="headerlink" title="Problem-1：F函数是一个什么样的函数"></a>Problem-1：F函数是一个什么样的函数</h4><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/06.png" alt="06"></p><h4 id="Problem-2：怎么做，才能穷举所有的Y，得到使得F函数最大值的Y，即如何解决最大化问题"><a href="#Problem-2：怎么做，才能穷举所有的Y，得到使得F函数最大值的Y，即如何解决最大化问题" class="headerlink" title="Problem-2：怎么做，才能穷举所有的Y，得到使得F函数最大值的Y，即如何解决最大化问题"></a>Problem-2：怎么做，才能穷举所有的Y，得到使得F函数最大值的Y，即如何解决最大化问题</h4><p><strong>假设问题已经被解决了</strong></p><h4 id="Problem-3：如何通过训练找到F函数"><a href="#Problem-3：如何通过训练找到F函数" class="headerlink" title="Problem-3：如何通过训练找到F函数"></a>Problem-3：如何通过训练找到F函数</h4><p>由第一个问题可得，解决这个问题的实质是，找到满足什么样的条件的W向量。满足的条件如图的黄色部分所示：</p><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/07.png" alt="07"></p><p>即：w与正确的(x,y)对的特征做内积的值，都会大于任意的W与其他的(x,y)对做内积的值。</p><p>举例说明：<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/08.png" alt="08"><br>其中红色的点是正确的点（training data),蓝色的点是任意点。<br>根据内积的几何意义，也就是将每一个(x,y)对，投影在W向量方向上，<strong>要满足所有红色的同类型的点，在W向量方向上的值是最大的。</strong><br>需要根据training data训练出这样的W向量</p><p><strong>解决方案演算法</strong><br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/09.png" alt="09"></p><p>主要步骤：</p><ul><li>初始化W为0</li><li>对于每一对training data,穷举所有的Y，然后将对应的(x,y)特征与目前的W做内积，选出使得这个内积最大的y’。（这个其实是第二个问题，现在我们假设了第二个问题已经被解决了，也就是我们可以计算出最大值，以及找到对应的y）</li><li>如果y’ != 正确的y，按照图片上的式子更新W的值，再进入训话计算。</li><li>直到对于训练集中所有的(x，y)对，使得W与特征的内积最大的就是正确的y的时候，W不再更新，跳出循环，训练完成。</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习笔记-09</title>
+      <link href="/2020/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-09/"/>
+      <url>/2020/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-09/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Unsupervised-Learning-无监督学习"><a href="#Unsupervised-Learning-无监督学习" class="headerlink" title="Unsupervised Learning 无监督学习"></a>Unsupervised Learning 无监督学习</h2><ul><li>化繁为简<br>  输入比较复杂的input，得到比较简单的output<br>  拥有的训练data，只有input，不知道output</li><li>无中生有<br>  训练某种function，训练集里只有function的output</li></ul><h3 id="Clustering-聚类"><a href="#Clustering-聚类" class="headerlink" title="Clustering  聚类"></a>Clustering  聚类</h3><p>化繁为简的好方法</p><ul><li><p>K-means（K均值）：将X集合里的元素聚类为K个类别。</p></li><li><p>HAC(hierarchical Agglomerative Clustering)凝聚层次聚类：<br>利用树的结构表示Data<br>在树的不同层次划分，可以得到不同数量的class。</p></li></ul><h3 id="Dimension-Reduction-降维"><a href="#Dimension-Reduction-降维" class="headerlink" title="Dimension Reduction   降维"></a>Dimension Reduction   降维</h3><p>从比较高维的空间变为比较低维的空间。<br>实质是输入一个x，经过某一function，得到输出z，z的维度小于x的维度。</p><p>方法：</p><ul><li>Feature selection 特征选择</li><li>Principle component analysis(PCA) 主成分分析</li></ul><p>（未完待续）</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习笔记-08</title>
+      <link href="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/"/>
+      <url>/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Semi-supervised-Learning-半监督学习"><a href="#Semi-supervised-Learning-半监督学习" class="headerlink" title="Semi-supervised Learning 半监督学习"></a>Semi-supervised Learning 半监督学习</h2><h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><ul><li>半监督学习的特点是，训练数据中存在一部分没有标记的数据，且数据量一般比标记后的数据要大。</li><li>为什么使用半监督学习？因为我们更多的数据是没有标记的，如果能有效地利用这些未标记数据可以将模型训练的更好，但是这方面，精确的“假设”起很重要的作用。</li></ul><h3 id="generative-model-生成模型"><a href="#generative-model-生成模型" class="headerlink" title="generative model 生成模型"></a>generative model 生成模型</h3><p>1、初始化模型参数后，计算每一个没有标记数据的后验概率，看看是输入哪一类别。</p><p>2、利用已经得到的数据，再次更新模型的参数（协方差、均值等）</p><p>3、反复第一步第二步，理论上模型最后会收敛。</p><h3 id="self-training"><a href="#self-training" class="headerlink" title="self-training"></a>self-training</h3><h3 id="Entropy-based-Regularization"><a href="#Entropy-based-Regularization" class="headerlink" title="Entropy-based Regularization"></a>Entropy-based Regularization</h3><p>1、我们通过标记数据的得到的模型，用来计算未标记的数据，这时候得到的对应的y是一些分布（distribution），这个分布越偏向某一类是越好的分布。判断分布的好坏可以利用信息熵来计算。信息熵为0是好的，信息熵很大的是不好的。</p><p><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/01.png" alt="01"></p><p>2、根据这个假设可以重新设置loss函数。</p><p>全新的loss函数由两部分组成：第一部分对应的是labelled data，计算模型中的y值和实际的y值的距离；第二部分对应的是unlabeled data，计算信息熵让其最小化。</p><p><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/02.png" alt="02"></p><h3 id="Smoothness-Assumption-平滑的假设"><a href="#Smoothness-Assumption-平滑的假设" class="headerlink" title="Smoothness Assumption(平滑的假设)"></a>Smoothness Assumption(平滑的假设)</h3><p><strong>假设：对于相似的X，Y值假设是一样的</strong><br>详细：1、x是不平均的，在某些地方集中，在某些地方分散。<br>2、当x1,x2在高密度的地方是接近的，y1与y2假设是一样的。</p><p><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/03.png" alt="03"></p><p>x1,x2更偏向于有相同的y。</p><h4 id="Graph-based-Approach"><a href="#Graph-based-Approach" class="headerlink" title="Graph-based Approach"></a>Graph-based Approach</h4><p>通过图的连通性，反映两个点之间的相似性。</p><ul><li>将数据用图的形式表示出来</li><li>labelled data会影响自身连接的邻居值。</li><li>被影响的数据点，也具有影响性，可以影响其他与其相连的点，即使这个点没有和任何的labelled data相连。</li></ul><p><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/04.png" alt="04"></p><p>定量表示smoothness<br><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/05.png" alt="05"><br><strong>s的值越小，表示越光滑</strong></p><p>根据该假设又可以重新定义Loss函数<br><img src="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/06.png" alt="06"></p><h3 id="Better-Representation"><a href="#Better-Representation" class="headerlink" title="Better Representation"></a>Better Representation</h3><ul><li>化繁为简<br>比较复杂的事物是由比较简单的事物操控，透过现象看到本质以后能进行更好的训练。</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习笔记-07</title>
+      <link href="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/"/>
+      <url>/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Recurrent-Neural-Network-RNN"><a href="#Recurrent-Neural-Network-RNN" class="headerlink" title="Recurrent Neural Network(RNN)"></a>Recurrent Neural Network(RNN)</h2><p>对应视频：p20-p21</p><h3 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h3><h4 id="Elman-Network"><a href="#Elman-Network" class="headerlink" title="Elman Network"></a>Elman Network</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/01.png" alt="01"></p><ul><li>橙、绿、黄构成一个前馈神经网络，蓝色保存了中间层的输出内容。</li><li>三个前馈神经网络是同一个神经网络，使用时间不同，输入的蓝色部分的内容也因此不同。蓝色的存储元件是循环神经网络的重点。</li></ul><p>构成深度神经网络也可以，每一层的输出内容都会被保存下来。<br><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/02.png" alt="02"></p><ul><li>其中蓝色箭头表示每一次存储下来的内容，第一次是需要为其赋初始值。</li><li><strong>Elman Network的特点是，保存的是每一个隐藏层的输出值</strong></li></ul><h4 id="Jordan-Network"><a href="#Jordan-Network" class="headerlink" title="Jordan Network"></a>Jordan Network</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/03.png" alt="03"></p><ul><li><strong>jordan network的特点是，把每一次的真实输出值保存下来，作为下一次的输入部分</strong></li></ul><h3 id="Long-Short-term-Memory（LSTM）"><a href="#Long-Short-term-Memory（LSTM）" class="headerlink" title="Long Short-term Memory（LSTM）"></a>Long Short-term Memory（LSTM）</h3><h4 id="1、构成"><a href="#1、构成" class="headerlink" title="1、构成"></a>1、构成</h4><ul><li>Memory Cell：存储内容</li><li>Input Gate：某一内容能否保留在Memory Cell中，需要操纵信号</li><li>Output Gate: 外界可不可以得到当前保存的内容，需要操纵讯号</li><li>Forget Gate：将memory Cell中的内容忘掉，需要操纵讯号</li></ul><p>其中后面三个Gate什么时候打开什么时候关闭都是由机器自主学习决定。<br><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/04.png" alt="04"><br>蓝色箭头是四个输入：input gate信号、input的内容，output gate信号，forget gate信号<br>红色箭头是一个输出：output输出。</p><h4 id="2、工作流程"><a href="#2、工作流程" class="headerlink" title="2、工作流程"></a>2、工作流程</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/05.png" alt="05"></p><ul><li>原来的cell中保存的内容为C</li><li>其中所有为f的函数，都是sigmoid函数，因为可以将输入的值变换后控制在0-1之间，0代表门关闭，1代表门打开。</li><li>g，h函数则是对输入的内容进行一定的变换。</li><li>最终的输出为a</li></ul><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/06.png" alt="06"></p><ul><li><p>第一步输入z，经过g函数得到g(z)，这是想要保存的内容。经过f函数得到f(zi)，这是判断能否输入的标志，如果为0则不能输入——相当于输入的值为0.</p></li><li><p>第二步经过f函数得到f(zf)，这是forget gate的标志。不同的是，如果值为0，代表cell中的内容被清洗了，而如果值为1，cell中的内容依旧保留着。</p></li><li><p>第三步，经过输入后，重新保存在cell中的c’公式为：</p><p>c’ = g(z)f(zi)(新输入的部分) + cf(zf)(之前保存的部分)</p></li><li><p>第四步，保存在cell中的内容经过h函数变换为h(c’)，这是可能将会输出的内容，经过f函数得到f(zo)，如果为0，则数据不会输出——相当于输出值为0。</p><p>最后实际输出值a = f(zo)h(c’)</p></li><li><p>图上所有f的部分，代表的都是一些讯号。</p></li></ul><h4 id="3、网络构成"><a href="#3、网络构成" class="headerlink" title="3、网络构成"></a>3、网络构成</h4><ol><li><p>理论基础流程</p><p> <img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/07.png" alt></p></li><li><p>实际</p><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/08.png" alt></p></li></ol><h3 id="RNN学习问题"><a href="#RNN学习问题" class="headerlink" title="RNN学习问题"></a>RNN学习问题</h3><h4 id="梯度爆炸"><a href="#梯度爆炸" class="headerlink" title="梯度爆炸"></a>梯度爆炸</h4><h4 id="梯度消失"><a href="#梯度消失" class="headerlink" title="梯度消失"></a>梯度消失</h4><p>通过LSTM可以解决</p><p>原理解释：LSTM中memory的更新，是旧值+新值，在forget gate不工作的时候，旧值不会被刷新，旧值的影响始终是存在的。</p><h3 id="RNN应用"><a href="#RNN应用" class="headerlink" title="RNN应用"></a>RNN应用</h3><ol><li>输入序列，得到一个结果（many to one）</li></ol><ul><li>sentiment analysis情感分析</li></ul><ol start="2"><li>many to many（output &lt; input)</li></ol><ul><li>语音辨识 speech recognition</li><li>CTC：Connectionist Temporal Classification,核心是加一个NULL的标识输出，解决叠字问题。</li></ul><ol start="3"><li>sequence to sequence（no limitation）<ul><li>机器翻译</li><li>Syntactic parsing</li><li>语音信号可以转换为向量</li><li>聊天机器人</li></ul></li></ol><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="Attention-based-Model"><a href="#Attention-based-Model" class="headerlink" title="Attention-based Model"></a>Attention-based Model</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/09.png" alt="09"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pythorch</title>
+      <link href="/2020/08/03/pythorch/"/>
+      <url>/2020/08/03/pythorch/</url>
+      
+        <content type="html"><![CDATA[<h2 id="PyTorch-Introduction"><a href="#PyTorch-Introduction" class="headerlink" title="PyTorch Introduction"></a>PyTorch Introduction</h2><h3 id="tensor张量"><a href="#tensor张量" class="headerlink" title="tensor张量"></a>tensor张量</h3><p>1、与numpy的相互转换</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor-&gt;numpy ：</span></span><br><span class="line">y_numpy = torch.numpy(x_tensor)</span><br><span class="line"><span class="comment">#numpy-&gt;tensor ：</span></span><br><span class="line">y_torch = torch.from_numpy(x_numpy)</span><br></pre></td></tr></table></figure><p>2、tensor可以转变矩阵形状，只要总共的元素数不变就行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor.view</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">y = x.view(<span class="number">15</span>)</span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">5</span>)  <span class="comment"># -1所指的维度可以根据其他维度的值推出来</span></span><br><span class="line"><span class="comment">#只有一个维度可以赋值-1！</span></span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure><p>3、</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CS224n-01</title>
+      <link href="/2020/08/03/CS224n-01/"/>
+      <url>/2020/08/03/CS224n-01/</url>
+      
+        <content type="html"><![CDATA[<h2 id="词向量表示"><a href="#词向量表示" class="headerlink" title="词向量表示"></a>词向量表示</h2><p><a href="https://www.bilibili.com/video/BV1pt411h7aT?p=2" target="_blank" rel="noopener">bilibili</a> —p2</p><p>nltk</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《神经网络与深度学习》第一章 阅读笔记</title>
       <link href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
       <url>/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
@@ -27,7 +160,7 @@
       <link href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/"/>
       <url>/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/</url>
       
-        <content type="html"><![CDATA[<h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p><a id="more"></a><h3 id="影像处理为例"><a href="#影像处理为例" class="headerlink" title="影像处理为例"></a>影像处理为例</h3><p>Q1：为什么可以将全连接网络里面的一些参数去掉，简化网络？</p><p>A：1、每一个neural都类似于一个分类器，用以判断某些特征，特定特征的判断需要的是相对应的输入，部分的输入内容就可以决定相关特征而不需要利用所有输入进行判断。<br>2、相同的特征判断可能存在于输入的不同位置（比如两张图片中同是鸟嘴但位置不同），但此时使用相同的的neural就好，而不需要两个neural，可以让两个neural相互share参数，共用同一组参数工作。<br>3、subsampling（比如缩小）对图像的判断可能没有影响，可以通过二次抽样来减少参数的使用。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p><p><a href="https://www.bilibili.com/video/BV1sE411K7Lw?p=15" target="_blank" rel="noopener">bilibili</a> P14</p><a id="more"></a><h3 id="影像处理为例"><a href="#影像处理为例" class="headerlink" title="影像处理为例"></a>影像处理为例</h3><p>Q1：为什么可以将全连接网络里面的一些参数去掉，简化网络？</p><p>A：1、每一个neural都类似于一个分类器，用以判断某些特征，特定特征的判断需要的是相对应的输入，部分的输入内容就可以决定相关特征而不需要利用所有输入进行判断。<br>2、相同的特征判断可能存在于输入的不同位置（比如两张图片中同是鸟嘴但位置不同），但此时使用相同的的neural就好，而不需要两个neural，可以让两个neural相互share参数，共用同一组参数工作。<br>3、subsampling（比如缩小）对图像的判断可能没有影响，可以通过二次抽样来减少参数的使用。</p><h3 id="CNN全过程"><a href="#CNN全过程" class="headerlink" title="CNN全过程"></a>CNN全过程</h3><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/07.png" alt="07"></p><h3 id="Convolution"><a href="#Convolution" class="headerlink" title="Convolution"></a>Convolution</h3><p>Q1：Convolution做了什么？</p><p>A：（以影像处理为例），convolution做了第1、2部分。通过卷积的方式，将不同位置的相同的特征，借助filter过滤器，提取出不同的特征图谱。</p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/01.png" alt="01"></p><p>eg：过滤器在右上角，是3<em>3的矩阵。过滤器每次取图片的一部分（大小相同的一部分）做内积，得到一个结果，然后移动固定的步数（这里是1），继续做内积，最后得到了新的4\</em>4的矩阵。多个filter做相同的事情，得到很多矩阵，合在一起成为了特征图谱。</p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/02.png" alt="02"></p><p>Q2：convolution和全连接网络的关系，以及why？</p><p>A：convolution的实质，就是全连接网络某一层中，去掉一些weight的结果。输出的特征矩阵的每一个值，相当于网络中某一个神经元的输出值。全连接网络中每一个神经元得到的输入是全部的输入，convolution中输入只是与过滤器做内积的那部分选中的输入。而过滤器矩阵的值其实就是weight值，是机器可以自己学习出来的内容。</p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/03.png" alt="03"></p><ul><li>部分的输入带来了较少的参数值，需要自主学习的参数的数量减少了。</li><li>16个神经元，只是每个神经元的输入对应input的不同的部分，使用的过滤器相同–&gt;每次计算所利用的权值相同–&gt;shared weights–&gt;又可以减少参数的数量。</li></ul><h3 id="Max-Pooling"><a href="#Max-Pooling" class="headerlink" title="Max Pooling"></a>Max Pooling</h3><p>convolution的输出矩阵，将矩阵按照一定规则划分，并按照一定规则在每个划分区域进行计算或者选择，使每个区域保留一个数值，生成新的矩阵。</p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/04.png" alt="04"></p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/05.png" alt="05"></p><h4 id="阶段总结"><a href="#阶段总结" class="headerlink" title="阶段总结"></a>阶段总结</h4><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/06.png" alt="06"></p><p>经过一次convolution+max pooling，原本是6*6的图片特征变成了2*2的特征图谱。新的特征图谱可以作为input参与下一次的convolution+max pooling，这一套可以重复很多次，每一次都会缩小矩阵大小。</p><p><strong>其他</strong></p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/08.png" alt="08"></p><p>剩下的两步：flatten相当于是把立体的特征图谱矩阵拉成多维向量，作为全新的input输入到全连接网络，全连接网络进行计算，output，结束。</p><h3 id="深入探究"><a href="#深入探究" class="headerlink" title="深入探究"></a>深入探究</h3><p>（以图像识别为例）</p><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p>每一个filter的作用是什么？</p><p>方法：在model已经训练好，参数全部固定的情况下，不断调整输入的x的值（输入的图片），要调整到被观测的filter的活跃度最高，其中活跃度的定义为通过该过滤器输出的矩阵的每一个值的总和。</p><p>结果发现每一个filter的作用是检测某种类型的线条走向，例如纵线条、横线条、不同方向的斜线条等。</p><h4 id="neural"><a href="#neural" class="headerlink" title="neural"></a>neural</h4><p>最后的全连接神经网络中每一个neural的作用是什么？</p><p>方法：（类似），调整输入x，最大化当前neural的输出值。</p><p>结果：侦测的是比较完整的一个图像，与filter不同的是，filter的输入只是图像中很小的一部分内容，侦测的也只是那一部分的特征，而全连接神经网络每一个neural都是输入所有的input，所以反应的是要侦测的整个图像的特征。</p><h4 id="output-layer"><a href="#output-layer" class="headerlink" title="output layer"></a>output layer</h4><p>最后的输出层的作用是什么？</p><p>方法：方法同理</p><p>结果猜想应该是数字的样子。但是最后的结果并不是这样，每一种输出都是相似的混乱的图片。说明机器最终学习到的和人类还是很不一样的内容，虽然都能对图像作出判断，但是其中的原理有很大区别。</p><p><strong>调整</strong></p><p>方法：使得输出y值最大的同时，也要让输入的x最小（黑白图中，x越大表示笔画部分越多，空白部分越少）。</p><p><img src="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/09.png" alt="09"></p><ul><li><p>好玩的其他研究应用：deep dream，deep style</p></li><li><p>CNN在下围棋上表现比普通的全连接网络表现更好。（why？）</p><p>围棋图谱有和图像识别相类似的地方，也就是适合CNN处理的地方</p><ol><li>图谱中也有很多特征（基本的pattern），远小于整个图谱的大小。</li><li>很多相同的特征（pattern），可以出现在不同的位置，代表同样的意义。</li></ol></li><li><p>Alpha Go的CNN结构的特别之处：没有使用Max Pooling，因为Max pooling 不需要被使用在围棋处理架构中。（第三个特征不符）</p></li><li><p>Speech应用，将音频图片输入到CNN，同样是对图片的处理。</p></li><li><p>text，文字处理应用，同样类似于处理图像</p></li></ul><p>感觉CNN的实质还是针对于图像处理的那三个特点，这样的表现有很好的效果。其他方面的应用也是有这方面的原理在，是三个特点的变形使用。</p>]]></content>
       
       
       
@@ -179,7 +312,7 @@
       <link href="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/"/>
       <url>/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/</url>
       
-        <content type="html"><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p><p>框架：</p><p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/01.png" alt="01"></p><a id="more"></a><h4 id="定义中英对照表"><a href="#定义中英对照表" class="headerlink" title="定义中英对照表"></a>定义中英对照表</h4><table><thead><tr><th align="center">English</th><th align="center">Chinese</th></tr></thead><tbody><tr><td align="center">Reinforcement learning</td><td align="center">强化学习</td></tr><tr><td align="center">Supervised learning</td><td align="center">监督学习</td></tr><tr><td align="center">Reinforcement learning</td><td align="center">无监督学习</td></tr><tr><td align="center">linear</td><td align="center">线性</td></tr><tr><td align="center">Network Architecture</td><td align="center">网络架构</td></tr><tr><td align="center">Gradient Descent</td><td align="center">梯度下降</td></tr><tr><td align="center">Adversarial Attack</td><td align="center">对抗攻击</td></tr><tr><td align="center">Explainable AI</td><td align="center"></td></tr><tr><td align="center">Network Compression</td><td align="center">网络压缩</td></tr><tr><td align="center">Anomaly Detection</td><td align="center"></td></tr><tr><td align="center">Transfer Learning</td><td align="center">迁移学习</td></tr><tr><td align="center">Meta learning</td><td align="center">元学习</td></tr><tr><td align="center">life-long learning</td><td align="center">终身学习</td></tr><tr><td align="center">Regression</td><td align="center">回归</td></tr><tr><td align="center">parameter</td><td align="center">参数</td></tr><tr><td align="center">feature</td><td align="center">特征</td></tr><tr><td align="center">optimal</td><td align="center">最优的</td></tr><tr><td align="center">convex</td><td align="center">凸函数</td></tr><tr><td align="center">overfitting</td><td align="center">过拟合</td></tr><tr><td align="center">generalization</td><td align="center">一般化</td></tr><tr><td align="center">regularization</td><td align="center">正则化、规范化</td></tr><tr><td align="center">bias</td><td align="center"></td></tr><tr><td align="center">variance</td><td align="center"></td></tr><tr><td align="center">estimator</td><td align="center">估计、预估</td></tr><tr><td align="center">validation set</td><td align="center">验证集（training data的一部分）</td></tr><tr><td align="center">cross validation</td><td align="center">交叉验证</td></tr><tr><td align="center">optimization</td><td align="center">最佳化、最优化</td></tr><tr><td align="center">root mean square</td><td align="center">均值平方根</td></tr><tr><td align="center">prior</td><td align="center"></td></tr><tr><td align="center">vector</td><td align="center">向量</td></tr><tr><td align="center">gaussian distribution</td><td align="center">高斯分布</td></tr><tr><td align="center">maximum likelihood</td><td align="center">最大似然</td></tr><tr><td align="center">naive bayes</td><td align="center">朴素贝叶斯</td></tr><tr><td align="center">sigmoid function</td><td align="center">S型函数</td></tr><tr><td align="center">logistic Regression</td><td align="center">逻辑回归</td></tr><tr><td align="center">cross entropy</td><td align="center">交叉熵</td></tr><tr><td align="center">Bernoulli Distribution</td><td align="center">伯努利分布、二项分布</td></tr><tr><td align="center">generative model</td><td align="center">生成模型</td></tr><tr><td align="center">Discriminative Model</td><td align="center">判别模型</td></tr><tr><td align="center">Neuron</td><td align="center">神经元</td></tr><tr><td align="center">neural network</td><td align="center">神经网络</td></tr><tr><td align="center">modularization</td><td align="center">模块化</td></tr><tr><td align="center">speech recognition</td><td align="center">语音辨识</td></tr><tr><td align="center">Backpropagation</td><td align="center">反向传播</td></tr><tr><td align="center">chain rule</td><td align="center">链式法则</td></tr><tr><td align="center">recursice</td><td align="center">递归的、循环的</td></tr><tr><td align="center">convolutional neural network</td><td align="center">CNN,卷积神经网络</td></tr><tr><td align="center">subsampling</td><td align="center">二次抽样</td></tr><tr><td align="center"></td><td align="center"></td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p><p>框架：</p><p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/01.png" alt="01"></p><a id="more"></a><h4 id="定义中英对照表"><a href="#定义中英对照表" class="headerlink" title="定义中英对照表"></a>定义中英对照表</h4><table><thead><tr><th align="center">English</th><th align="center">Chinese</th></tr></thead><tbody><tr><td align="center">Reinforcement learning</td><td align="center">强化学习</td></tr><tr><td align="center">Supervised learning</td><td align="center">监督学习</td></tr><tr><td align="center">Reinforcement learning</td><td align="center">无监督学习</td></tr><tr><td align="center">linear</td><td align="center">线性</td></tr><tr><td align="center">Network Architecture</td><td align="center">网络架构</td></tr><tr><td align="center">Gradient Descent</td><td align="center">梯度下降</td></tr><tr><td align="center">Adversarial Attack</td><td align="center">对抗攻击</td></tr><tr><td align="center">Explainable AI</td><td align="center"></td></tr><tr><td align="center">Network Compression</td><td align="center">网络压缩</td></tr><tr><td align="center">Anomaly Detection</td><td align="center"></td></tr><tr><td align="center">Transfer Learning</td><td align="center">迁移学习</td></tr><tr><td align="center">Meta learning</td><td align="center">元学习</td></tr><tr><td align="center">life-long learning</td><td align="center">终身学习</td></tr><tr><td align="center">Regression</td><td align="center">回归</td></tr><tr><td align="center">parameter</td><td align="center">参数</td></tr><tr><td align="center">feature</td><td align="center">特征</td></tr><tr><td align="center">optimal</td><td align="center">最优的</td></tr><tr><td align="center">convex</td><td align="center">凸函数</td></tr><tr><td align="center">overfitting</td><td align="center">过拟合</td></tr><tr><td align="center">generalization</td><td align="center">一般化</td></tr><tr><td align="center">regularization</td><td align="center">正则化、规范化</td></tr><tr><td align="center">bias</td><td align="center"></td></tr><tr><td align="center">variance</td><td align="center"></td></tr><tr><td align="center">estimator</td><td align="center">估计、预估</td></tr><tr><td align="center">validation set</td><td align="center">验证集（training data的一部分）</td></tr><tr><td align="center">cross validation</td><td align="center">交叉验证</td></tr><tr><td align="center">optimization</td><td align="center">最佳化、最优化</td></tr><tr><td align="center">root mean square</td><td align="center">均值平方根</td></tr><tr><td align="center">prior</td><td align="center"></td></tr><tr><td align="center">vector</td><td align="center">向量</td></tr><tr><td align="center">gaussian distribution</td><td align="center">高斯分布</td></tr><tr><td align="center">maximum likelihood</td><td align="center">最大似然</td></tr><tr><td align="center">naive bayes</td><td align="center">朴素贝叶斯</td></tr><tr><td align="center">sigmoid function</td><td align="center">S型函数</td></tr><tr><td align="center">logistic Regression</td><td align="center">逻辑回归</td></tr><tr><td align="center">cross entropy</td><td align="center">交叉熵</td></tr><tr><td align="center">Bernoulli Distribution</td><td align="center">伯努利分布、二项分布</td></tr><tr><td align="center">generative model</td><td align="center">生成模型</td></tr><tr><td align="center">Discriminative Model</td><td align="center">判别模型</td></tr><tr><td align="center">Neuron</td><td align="center">神经元</td></tr><tr><td align="center">neural network</td><td align="center">神经网络</td></tr><tr><td align="center">modularization</td><td align="center">模块化</td></tr><tr><td align="center">speech recognition</td><td align="center">语音辨识</td></tr><tr><td align="center">Backpropagation</td><td align="center">反向传播</td></tr><tr><td align="center">chain rule</td><td align="center">链式法则</td></tr><tr><td align="center">recursice</td><td align="center">递归的、循环的</td></tr><tr><td align="center">convolutional neural network</td><td align="center">CNN,卷积神经网络</td></tr><tr><td align="center">subsampling</td><td align="center">二次抽样</td></tr><tr><td align="center">filter</td><td align="center">过滤器</td></tr><tr><td align="center">Feature map</td><td align="center">特征图谱</td></tr><tr><td align="center">feedforward</td><td align="center">前馈</td></tr><tr><td align="center">dimension</td><td align="center">方面，维数</td></tr><tr><td align="center">initial</td><td align="center">最初的</td></tr><tr><td align="center">gradient vanishing</td><td align="center">梯度消失</td></tr><tr><td align="center">gradient explode</td><td align="center">梯度爆炸</td></tr><tr><td align="center">neural turing machine</td><td align="center">图灵机</td></tr><tr><td align="center">Semi-supervised learning</td><td align="center">半监督学习</td></tr><tr><td align="center">Support Vector Machine（SVM）</td><td align="center">支持向量机</td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td></tr></tbody></table>]]></content>
       
       
       
