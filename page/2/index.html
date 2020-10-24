@@ -319,6 +319,532 @@
         
           
   <h2 class="title">
+    <a href="/2020/08/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/">
+      机器学习笔记-07
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 14, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Recurrent-Neural-Network-RNN"><a href="#Recurrent-Neural-Network-RNN" class="headerlink" title="Recurrent Neural Network(RNN)"></a>Recurrent Neural Network(RNN)</h2><p>对应视频：p20-p21</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/08/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/03/pythorch/">
+      pythorch
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 3, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PyTorch-Introduction"><a href="#PyTorch-Introduction" class="headerlink" title="PyTorch Introduction"></a>PyTorch Introduction</h2><h3 id="tensor张量"><a href="#tensor张量" class="headerlink" title="tensor张量"></a>tensor张量</h3><p>1、与numpy的相互转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor-&gt;numpy ：</span></span><br><span class="line">y_numpy = torch.numpy(x_tensor)</span><br><span class="line"><span class="comment">#numpy-&gt;tensor ：</span></span><br><span class="line">y_torch = torch.from_numpy(x_numpy)</span><br></pre></td></tr></table></figure>
+
+<p>2、tensor可以转变矩阵形状，只要总共的元素数不变就行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor.view</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">y = x.view(<span class="number">15</span>)</span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">5</span>)  <span class="comment"># -1所指的维度可以根据其他维度的值推出来</span></span><br><span class="line"><span class="comment">#只有一个维度可以赋值-1！</span></span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure>
+
+<p>3、</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/03/CS224n-01/">
+      CS224n-01
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 3, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="词向量表示"><a href="#词向量表示" class="headerlink" title="词向量表示"></a>词向量表示</h2><p><a href="https://www.bilibili.com/video/BV1pt411h7aT?p=2" target="_blank" rel="noopener">bilibili</a> —p2</p>
+<p>nltk</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+      《神经网络与深度学习》第一章 阅读笔记
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第二章-机器学习概述"><a href="#第二章-机器学习概述" class="headerlink" title="第二章 机器学习概述"></a>第二章 机器学习概述</h2>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
+      机器学习笔记-06
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p>
+<p><a href="https://www.bilibili.com/video/BV1sE411K7Lw?p=15" target="_blank" rel="noopener">bilibili</a> P14</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
+      机器学习笔记-05
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 2, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Backpropagation——反向传播"><a href="#Backpropagation——反向传播" class="headerlink" title="Backpropagation——反向传播"></a>Backpropagation——反向传播</h2><p>是有效计算gradient的向量的方法，因为随着网络的层数的增加，参数越来越多，向量越来越长，计算越来越复杂，使用反向传播比较高效。</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/2020/07/26/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
       《神经网络与深度学习》第一章 阅读笔记
     </a>
@@ -659,542 +1185,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/06/2020-07%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/">
-      2020-07胡言乱语
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 6, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我也不知道写点什么，想到哪里写到那里吧</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/06/2020-07%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/">
-      机器学习笔记-02
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 27, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="regression-回归"><a href="#regression-回归" class="headerlink" title="regression 回归"></a>regression 回归</h3><h5 id="linear-model-线性模型"><a href="#linear-model-线性模型" class="headerlink" title="linear model 线性模型"></a>linear model 线性模型</h5><p>1、设计模型</p>
-<p>2、评价确定的参数是否合适，利用Loss function L，损失来评价</p>
-<p>3、通过数据训练模型training data</p>
-<p>4、testing data计算ERROR</p>
-<p>挑选最好的function，也就是使得损失最小的function</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-02/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/">
-      机器学习笔记-01
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 25, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Machine learning 三步骤</p>
-<p>框架：</p>
-<p><img src="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/01.png" alt="01"></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">
-      python学习日志
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 25, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python学习中遇到的知识总结一下</p>
-<p>2020-04-25更新</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/25/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/">
-      <转>游走记忆的时间__中文填词
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 25, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《游走记忆的时间》是我很喜欢的一首歌，在不懂得韩语歌词的情况下便被吸引。初听旋律会觉得很温柔很治愈，了解了歌词的含义后又会觉得有些悲伤。想尝试自己填一下中文歌词，现在文学素养和音乐乐理都有很大的不足，不过没关系，慢慢来，人还是要有梦想的。</p>
-<p>这里有一个填的很不错的歌词，收藏下来学习一下。。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/25/%E8%BD%AC-%E6%B8%B8%E8%B5%B0%E8%AE%B0%E5%BF%86%E7%9A%84%E6%97%B6%E9%97%B4-%E4%B8%AD%E6%96%87%E5%A1%AB%E8%AF%8D/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/">
-      python爬虫遇到的问题一览
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 15, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"><a href="#正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下" class="headerlink" title="正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下"></a>正在进行有关爬虫的课程项目，在这里把爬虫过程中遇到的问题、报错、感想等都总结一下</h6>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/04/15/python%E7%88%AC%E8%99%AB%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1209,7 +1199,7 @@
           </a>
         
         <p class="current">
-          2 / 3
+          2 / 4
         </p>
         
           <a class="next" rel="next" href="/page/3/">

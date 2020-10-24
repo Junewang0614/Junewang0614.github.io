@@ -16,12 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>机器学习笔记-07 - June</title>
+    <title>自然语言处理课堂记录-01 - June</title>
   
     <meta name="keywords" content="人工智能">
   
-  
-    <meta name="description" content="Recurrent Neural Network(RNN)对应视频：p20-p21">
   
 
   <!-- feed -->
@@ -315,8 +313,8 @@
         
           
   <h1 class="title">
-    <a href="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/">
-      机器学习笔记-07
+    <a href="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-01/">
+      自然语言处理课堂记录-01
     </a>
   </h1>
 
@@ -346,7 +344,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Sep 7, 2020</p>
+    <p>发布于：Oct 18, 2020</p>
   </a>
 </div>
 
@@ -370,85 +368,13 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h2 id="Recurrent-Neural-Network-RNN"><a href="#Recurrent-Neural-Network-RNN" class="headerlink" title="Recurrent Neural Network(RNN)"></a>Recurrent Neural Network(RNN)</h2><p>对应视频：p20-p21</p>
-<a id="more"></a>
-
-<h3 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h3><h4 id="Elman-Network"><a href="#Elman-Network" class="headerlink" title="Elman Network"></a>Elman Network</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/01.png" alt="01"></p>
-<ul>
-<li>橙、绿、黄构成一个前馈神经网络，蓝色保存了中间层的输出内容。</li>
-<li>三个前馈神经网络是同一个神经网络，使用时间不同，输入的蓝色部分的内容也因此不同。蓝色的存储元件是循环神经网络的重点。</li>
-</ul>
-<p>构成深度神经网络也可以，每一层的输出内容都会被保存下来。<br><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/02.png" alt="02"></p>
-<ul>
-<li>其中蓝色箭头表示每一次存储下来的内容，第一次是需要为其赋初始值。</li>
-<li><strong>Elman Network的特点是，保存的是每一个隐藏层的输出值</strong></li>
-</ul>
-<h4 id="Jordan-Network"><a href="#Jordan-Network" class="headerlink" title="Jordan Network"></a>Jordan Network</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/03.png" alt="03"></p>
-<ul>
-<li><strong>jordan network的特点是，把每一次的真实输出值保存下来，作为下一次的输入部分</strong></li>
-</ul>
-<h3 id="Long-Short-term-Memory（LSTM）"><a href="#Long-Short-term-Memory（LSTM）" class="headerlink" title="Long Short-term Memory（LSTM）"></a>Long Short-term Memory（LSTM）</h3><h4 id="1、构成"><a href="#1、构成" class="headerlink" title="1、构成"></a>1、构成</h4><ul>
-<li>Memory Cell：存储内容</li>
-<li>Input Gate：某一内容能否保留在Memory Cell中，需要操纵信号</li>
-<li>Output Gate: 外界可不可以得到当前保存的内容，需要操纵讯号</li>
-<li>Forget Gate：将memory Cell中的内容忘掉，需要操纵讯号</li>
-</ul>
-<p>其中后面三个Gate什么时候打开什么时候关闭都是由机器自主学习决定。<br><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/04.png" alt="04"><br>蓝色箭头是四个输入：input gate信号、input的内容，output gate信号，forget gate信号<br>红色箭头是一个输出：output输出。</p>
-<h4 id="2、工作流程"><a href="#2、工作流程" class="headerlink" title="2、工作流程"></a>2、工作流程</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/05.png" alt="05"></p>
-<ul>
-<li>原来的cell中保存的内容为C</li>
-<li>其中所有为f的函数，都是sigmoid函数，因为可以将输入的值变换后控制在0-1之间，0代表门关闭，1代表门打开。</li>
-<li>g，h函数则是对输入的内容进行一定的变换。</li>
-<li>最终的输出为a</li>
-</ul>
-<p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/06.png" alt="06"></p>
-<ul>
-<li><p>第一步输入z，经过g函数得到g(z)，这是想要保存的内容。经过f函数得到f(zi)，这是判断能否输入的标志，如果为0则不能输入——相当于输入的值为0.</p>
-</li>
-<li><p>第二步经过f函数得到f(zf)，这是forget gate的标志。不同的是，如果值为0，代表cell中的内容被清洗了，而如果值为1，cell中的内容依旧保留着。</p>
-</li>
-<li><p>第三步，经过输入后，重新保存在cell中的c’公式为：</p>
-<p>c’ = g(z)f(zi)(新输入的部分) + cf(zf)(之前保存的部分)</p>
-</li>
-<li><p>第四步，保存在cell中的内容经过h函数变换为h(c’)，这是可能将会输出的内容，经过f函数得到f(zo)，如果为0，则数据不会输出——相当于输出值为0。</p>
-<p>最后实际输出值a = f(zo)h(c’)</p>
-</li>
-<li><p>图上所有f的部分，代表的都是一些讯号。</p>
-</li>
-</ul>
-<h4 id="3、网络构成"><a href="#3、网络构成" class="headerlink" title="3、网络构成"></a>3、网络构成</h4><ol>
-<li><p>理论基础流程</p>
-<p> <img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/07.png" alt></p>
-</li>
-<li><p>实际</p>
-<p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/08.png" alt></p>
-</li>
-</ol>
-<h3 id="RNN学习问题"><a href="#RNN学习问题" class="headerlink" title="RNN学习问题"></a>RNN学习问题</h3><h4 id="梯度爆炸"><a href="#梯度爆炸" class="headerlink" title="梯度爆炸"></a>梯度爆炸</h4><h4 id="梯度消失"><a href="#梯度消失" class="headerlink" title="梯度消失"></a>梯度消失</h4><p>通过LSTM可以解决</p>
-<p>原理解释：LSTM中memory的更新，是旧值+新值，在forget gate不工作的时候，旧值不会被刷新，旧值的影响始终是存在的。</p>
-<h3 id="RNN应用"><a href="#RNN应用" class="headerlink" title="RNN应用"></a>RNN应用</h3><ol>
-<li>输入序列，得到一个结果（many to one）</li>
-</ol>
-<ul>
-<li>sentiment analysis情感分析</li>
-</ul>
-<ol start="2">
-<li>many to many（output &lt; input)</li>
-</ol>
-<ul>
-<li>语音辨识 speech recognition</li>
-<li>CTC：Connectionist Temporal Classification,核心是加一个NULL的标识输出，解决叠字问题。</li>
-</ul>
-<ol start="3">
-<li>sequence to sequence（no limitation）<ul>
-<li>机器翻译</li>
-<li>Syntactic parsing</li>
-<li>语音信号可以转换为向量</li>
-<li>聊天机器人</li>
-</ul>
-</li>
-</ol>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="Attention-based-Model"><a href="#Attention-based-Model" class="headerlink" title="Attention-based Model"></a>Attention-based Model</h4><p><img src="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/09.png" alt="09"></p>
+          <h2 id="第一讲-绪论"><a href="#第一讲-绪论" class="headerlink" title="第一讲 绪论"></a>第一讲 绪论</h2><p>1、什么是自然语言处理？</p>
+<p>让计算机能够处理并理解自然语言。</p>
+<p>2、语言</p>
+<p>语言是人与人之间最方便、最自然、最有效的交流通讯工具</p>
+<p>语言是知识的载体，语言和人类智能关系密切。</p>
+<p>3、经典应用</p>
+<p>ACL,EMNLP,CO</p>
 
           
             <div class='article_footer'>
@@ -487,10 +413,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-11T16:47:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-24T22:15:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Sep 11, 2020</p>
+    <p>更新于：Oct 24, 2020</p>
   </a>
 </div>
 
@@ -517,7 +443,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://junewang0614.github.io/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/&title=机器学习笔记-07 - June&summary=Recurrent Neural Network(RNN)对应视频：p20-p21"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://junewang0614.github.io/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-01/&title=自然语言处理课堂记录-01 - June&summary="
           
           >
           
@@ -529,7 +455,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://junewang0614.github.io/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/&title=机器学习笔记-07 - June&summary=Recurrent Neural Network(RNN)对应视频：p20-p21"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://junewang0614.github.io/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-01/&title=自然语言处理课堂记录-01 - June&summary="
           
           >
           
@@ -541,7 +467,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://junewang0614.github.io/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/&title=机器学习笔记-07 - June&summary=Recurrent Neural Network(RNN)对应视频：p20-p21"
+          href="http://service.weibo.com/share/share.php?url=http://junewang0614.github.io/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-01/&title=自然语言处理课堂记录-01 - June&summary="
           
           >
           
@@ -565,18 +491,19 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习笔记-08</p>
-                <p class='content'>Semi-supervised Learning 半监督学习对应视频BV13x411v7US P23
-基本介绍
-半监督学习的特点是，训练数据中存在一部分没有标记的数据，且数据量一般比标记后的数据...</p>
+              <a class='prev' href='/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>自然语言处理课堂记录-02</p>
+                <p class='content'>词法及语言模型词表示是翻译词中的符号成为机器可以理解的语义的过程。能让计算机理解每个词背后的meaning，实现对词的语义信息的表示。
+应用：计算词之间的相似度，发现词之间的关系。
+利用近义词和...</p>
               </a>
             
             
-              <a class='next' href='/2020/08/03/pythorch/'>
-                <p class='title'>pythorch<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>PyTorch Introductiontensor张量1、与numpy的相互转换
-1234#tensor-&gt;numpy ：y_numpy = torch.numpy(x_tensor)#...</p>
+              <a class='next' href='/2020/09/22/pytorch-01/'>
+                <p class='title'>pytorch-01<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Pytorch构建深度学习模型经典项目1、图像分类：github.com/floydhub/imagent
+2、github.com/amdegroot/ssd.pytorch
+3、github...</p>
               </a>
             
           </div>
@@ -621,7 +548,7 @@
 
   <script>
     window.subData = {
-      title: '机器学习笔记-07',
+      title: '自然语言处理课堂记录-01',
       tools: true
     }
   </script>
@@ -648,7 +575,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recurrent-Neural-Network-RNN"><span class="toc-text">Recurrent Neural Network(RNN)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本架构"><span class="toc-text">基本架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Elman-Network"><span class="toc-text">Elman Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Jordan-Network"><span class="toc-text">Jordan Network</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Long-Short-term-Memory（LSTM）"><span class="toc-text">Long Short-term Memory（LSTM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、构成"><span class="toc-text">1、构成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、工作流程"><span class="toc-text">2、工作流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、网络构成"><span class="toc-text">3、网络构成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RNN学习问题"><span class="toc-text">RNN学习问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度爆炸"><span class="toc-text">梯度爆炸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度消失"><span class="toc-text">梯度消失</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RNN应用"><span class="toc-text">RNN应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention-based-Model"><span class="toc-text">Attention-based Model</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一讲-绪论"><span class="toc-text">第一讲 绪论</span></a></li></ol>
     </div>
   </section>
 

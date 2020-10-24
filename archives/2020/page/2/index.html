@@ -387,8 +387,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/08/03/pythorch/">
-      pythorch
+    <a href="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/">
+      机器学习笔记-12
     </a>
   </h2>
 
@@ -418,7 +418,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 3, 2020</p>
+    <p>发布于：Sep 14, 2020</p>
   </a>
 </div>
 
@@ -443,13 +443,65 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="PyTorch-Introduction"><a href="#PyTorch-Introduction" class="headerlink" title="PyTorch Introduction"></a>PyTorch Introduction</h2><h3 id="tensor张量"><a href="#tensor张量" class="headerlink" title="tensor张量"></a>tensor张量</h3><p>1、与numpy的相互转换</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor-&gt;numpy ：</span></span><br><span class="line">y_numpy = torch.numpy(x_tensor)</span><br><span class="line"><span class="comment">#numpy-&gt;tensor ：</span></span><br><span class="line">y_torch = torch.from_numpy(x_numpy)</span><br></pre></td></tr></table></figure>
-
-<p>2、tensor可以转变矩阵形状，只要总共的元素数不变就行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor.view</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">y = x.view(<span class="number">15</span>)</span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">5</span>)  <span class="comment"># -1所指的维度可以根据其他维度的值推出来</span></span><br><span class="line"><span class="comment">#只有一个维度可以赋值-1！</span></span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure>
-
-<p>3、</p>
+        <h2 id="Sequence-Labeling-Problem"><a href="#Sequence-Labeling-Problem" class="headerlink" title="Sequence Labeling Problem"></a>Sequence Labeling Problem</h2><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/01.png" alt="01"></p>
+<p>以下都是以POS问题（词性标注问题）为例</p>
+<h3 id="HMM（隐马尔科夫模型）"><a href="#HMM（隐马尔科夫模型）" class="headerlink" title="HMM（隐马尔科夫模型）"></a>HMM（隐马尔科夫模型）</h3><p>假设：<br>产生句子分为两个步骤：</p>
+<ul>
+<li>产生一个POS的序列，基于大脑中的语法。</li>
+<li>根据POS序列的tag，找到对应词性的单词，对应方式是基于词典</li>
+<li>-&gt;形成一句话</li>
+</ul>
+<h4 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h4><p>Step 1: 根据马尔科夫链，计算产生相应POS的几率<br>step 2：基于相应的pos序列，在指定位置上配上某一单词的几率，将整句话组成的序列相乘，也就得到了在该pos序列条件下，生成这句话的几率。</p>
+<p>基于以上两个步骤，利用条件概率公式，可以计算出X：句子序列，Y：词性序列，两者相匹配的几率。下图是一个例子：<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/02.png" alt="02"></p>
+<p>更一般化的描述：<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/03.png" alt="03"><br><strong>其中的各种几率根据training data可以统计得到</strong></p>
+<p><strong>计算方式</strong><br>已知x，想要求的Y，实际上就是通过穷举所有的Y，找到让P(x,y)最大的Y的过程。<br>直接通过暴力枚举的话算法的复杂的非常大，借助viterbi algorithm可以将复杂度大幅度降低，提高效率(一般复杂度为O(L|S|<sup>2</sup>),L为序列长度，S为词性元素)</p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>根据结构化学习的方式，HMM解决了对应的三个问题。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/04.png" alt="04"></p>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><p>HMM“脑补”问题：</p>
+<p>由于HMM假设了Transition probability 和 Emission probability之间是相互独立的，得到的计算公式P(x,y)体现了这一点，两个可能性单独通过训练集进行训练。所以可能会出现HMM根据公式自主创造新序列的可能性。</p>
+<p>这个问题有好有坏：</p>
+<ul>
+<li>不好的地方：正确的序列的P(x,y)值可能反而小于错误的P(x,y)值</li>
+<li>好的地方：当数据集数据很少的时候，通过脑补反而会有比较好的表现</li>
+</ul>
+<h3 id="CRF-条件随机场"><a href="#CRF-条件随机场" class="headerlink" title="CRF 条件随机场"></a>CRF 条件随机场</h3><ul>
+<li>P(x,y)是与一个 exp(W*feature(x,y))正相关的</li>
+<li>HMM与CRF的本质是一样的</li>
+</ul>
+<h4 id="HMM到CRF的转换"><a href="#HMM到CRF的转换" class="headerlink" title="HMM到CRF的转换"></a>HMM到CRF的转换</h4><ul>
+<li><p>将p(x,y)取log值，化乘为加<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/05.png" alt="05"></p>
+</li>
+<li><p>所有形如下图左边的求和表达式条件概率，都可以表示成右边的形式<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/06.png" alt="06"></p>
+</li>
+<li><p>HMM的P(x,y)表达式取log值后，可以划分为四个部分：</p>
+<ul>
+<li>词性Y1作为句子开头的概率的log值</li>
+<li>词性yi+1在yi后面出现的概率的log值（由1-（L-1)求和)</li>
+<li>词性yL在句子末尾的概率的log值</li>
+<li>实际单词xi对应词性yi的概率的log值（由1-L求和）<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/07.png" alt="07"></li>
+</ul>
+</li>
+<li><p>最后的结果，可以表示成两个向量做内积，其中紫色部分为w,红色部分为feature(x,y)。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/09.png" alt="09"></p>
+</li>
+<li><p>w中的每一维是可以和相应的概率进行对应，但是由于不能保证W最后结果的每一维都小于1，而概率不能大于1，所以以正相关描述两者关系。</p>
+</li>
+</ul>
+<h4 id="Feature-vector的组成"><a href="#Feature-vector的组成" class="headerlink" title="Feature vector的组成"></a>Feature vector的组成</h4><ul>
+<li>part1：tags和words之间的关系<br>类似于一个邻接矩阵，矩阵形成所有的（tag，word）对，记录的值是该对在句子中出现的次数。</li>
+<li>part2：tag与tag之间的关系（tag：词性+start+end组成的集合）<br>同样类似于邻接矩阵，所有的（tag，tag）对一一配对，形成矩阵。（tag1，tag2）指的是tag2出现在tag1之后的情况。还是记录次数。</li>
+<li>其实feature(x,y)可以自己定义。</li>
+</ul>
+<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/10.png" alt="10"><br>如图所示<br>正如一般的结构化学习，在训练CRF的时候，我们希望可以定义一个函数，这里是O(w)，找到的W，是可以在数据是正确的(x,y)对时，另这个O(w)最大化的函数。<br>在这里，我们用条件概率p(y|x)用来组成O(w)。</p>
+<p>而组成的O(w)根据统计学公式，我们又可以写成相减的两部分。第一部分对我们而言是可见的（橙色的），我们需要最大化的；第二部分对我们而言是不可见的（蓝色的），我们需要最小化。</p>
+<p>因为这里是最大化，使用的方法不再是梯度下降，而是梯度增加。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/11.png" alt="11"></p>
+<p>(具体计算有些困难，暂时没有理解)</p>
+<p><strong>最后的梯度上升的公式</strong><br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/12.png" alt="12"></p>
+<ul>
+<li>绿色的部分是正确的对出现的次数，意味着s，t可以被正确匹配的时候，我们应该增大W。因而是正相关。</li>
+<li>黄色的部分是其余任意的对出现的概率，意味着当s,t匹配错误的时候，我们应该减小W。因而是负相关。</li>
+</ul>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/14.png" alt="14"></p>
+<h3 id="CRF-vs-HMM"><a href="#CRF-vs-HMM" class="headerlink" title="CRF vs HMM"></a>CRF vs HMM</h3><p><strong>本质区别：CRF会通过调整参数，尽可能降低错误对的机率，而HMM不具备这个功能</strong><br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/13.png" alt="13"></p>
+<p>在计算中，HMM依据的是准确的P的值，而CRF只是根据训练集数据一直在训练调整参数，fit data。使得正确的对机率上升，错误对机率下降。</p>
 
       
     </div>
@@ -476,8 +528,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/08/03/CS224n-01/">
-      CS224n-01
+    <a href="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/">
+      机器学习笔记-11
     </a>
   </h2>
 
@@ -507,7 +559,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 3, 2020</p>
+    <p>发布于：Sep 11, 2020</p>
   </a>
 </div>
 
@@ -532,9 +584,25 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="词向量表示"><a href="#词向量表示" class="headerlink" title="词向量表示"></a>词向量表示</h2><p><a href="https://www.bilibili.com/video/BV1pt411h7aT?p=2" target="_blank" rel="noopener">bilibili</a> —p2</p>
-<p>nltk</p>
-
+        <h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/01.png" alt="01"></p>
+<h3 id="Separable-应用范围较窄"><a href="#Separable-应用范围较窄" class="headerlink" title="Separable(应用范围较窄)"></a>Separable(应用范围较窄)</h3><p>使用structured Perceptron 结构化感知机</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/02.png" alt="02"></p>
+<p><strong>问题：</strong><br><strong>这个算法什么时候才能够收敛，可能成功的找到需要的W吗？</strong><br><strong>结论：</strong><br><strong>算法花费最多的次数是（R/margin）的平方次</strong></p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/03.png" alt="03"></p>
+<h3 id="Non-separable-case"><a href="#Non-separable-case" class="headerlink" title="Non-separable case"></a>Non-separable case</h3><p>我们大多数时候可能找不到可以让正确的(x,y)对的值最大的W向量，但是我们依旧可以评价不同的W向量的好坏。</p>
+<p>为了评价W向量的好坏–&gt;定义Cost Function，用来评估W有多差，然后我们选择的W是使得Cost Function minimize的。</p>
+<p>Cost Function可以根据不同的问题自己定义。</p>
+<p>Cost Function的最小值的求解可以通过梯度下降的方法。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/04.png" alt="04"><br>特别地，当learning rate = 1的时候，这个就变成了结构化感知机。</p>
+<h3 id="Considering-error"><a href="#Considering-error" class="headerlink" title="Considering error"></a>Considering error</h3><p>不同的错误之间有差别，这个也应该考虑到Training中来。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/05.png" alt="05"></p>
+<p>如图所示，右边对应的W就比左边对应的W要好很多。</p>
+<p>所谓考虑错误的差别，即我们希望找到的W对应的评测函数F，当虽然是错误但是和正确答案比较接近的时候，两者的评测值也是接近的。但是当错误很离谱的时候，评测值和正确的评测值之间的差距则相对大了很多。</p>
+<p>做法：定义Error Function，这个函数也是自己根据不同的问题自主定义。</p>
+<p>有了Error Function，对应的Cost Function也需要作出相应修改，表示错误的差别被考虑进了training当中。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/06.png" alt="06"><br><strong>(存疑？为什么最大值是要加上Error Function)</strong></p>
+<p>计算Cost Function同样使用梯度下降<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/07.png" alt="07"><br><strong>注意：</strong>此时出现了一个问题，最大值的求解对象是改变了的，原本只是求W*Feature的最大值，这个是我们假定已经能解决出来的，现在需要求出来的是原来的值加上Error Function的值。这点提示我们Error Function要合理定义，便于计算，不然会给整个计算增添很多问题。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/08.png" alt="08"><br>算是一种理解方式？当式子满足下面两个的时候，上面的不等式是成立的，上面的不等式成立了，我们才能通过不断地减小真实y值和使F值最大的y值之间的最大差距来减小实际差距。</p>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/09.png" alt="09"></p>
+<h3 id="Structured-SVM"><a href="#Structured-SVM" class="headerlink" title="Structured SVM"></a>Structured SVM</h3>
       
     </div>
     
@@ -560,8 +628,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
-      《神经网络与深度学习》第一章 阅读笔记
+    <a href="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/">
+      机器学习笔记-10
     </a>
   </h2>
 
@@ -591,7 +659,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
+    <p>发布于：Sep 11, 2020</p>
   </a>
 </div>
 
@@ -616,13 +684,13 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第二章-机器学习概述"><a href="#第二章-机器学习概述" class="headerlink" title="第二章 机器学习概述"></a>第二章 机器学习概述</h2>
+        <h2 id="Structured-Learning-结构化学习"><a href="#Structured-Learning-结构化学习" class="headerlink" title="Structured Learning 结构化学习"></a>Structured Learning 结构化学习</h2><p>对应视频<a href="https://www.bilibili.com/video/BV13x411v7US" target="_blank" rel="noopener">BV13x411v7US</a> P32</p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+          <a href="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/">
             阅读全文 <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -648,8 +716,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
-      机器学习笔记-06
+    <a href="/2020/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-09/">
+      机器学习笔记-09
     </a>
   </h2>
 
@@ -679,7 +747,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
+    <p>发布于：Sep 10, 2020</p>
   </a>
 </div>
 
@@ -704,17 +772,29 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p>
-<p><a href="https://www.bilibili.com/video/BV1sE411K7Lw?p=15" target="_blank" rel="noopener">bilibili</a> P14</p>
+        <h2 id="Unsupervised-Learning-无监督学习"><a href="#Unsupervised-Learning-无监督学习" class="headerlink" title="Unsupervised Learning 无监督学习"></a>Unsupervised Learning 无监督学习</h2><p>对应视频<a href="https://www.bilibili.com/video/BV13x411v7US" target="_blank" rel="noopener">BV13x411v7US</a> P24</p>
+<ul>
+<li>化繁为简<br>  输入比较复杂的input，得到比较简单的output<br>  拥有的训练data，只有input，不知道output</li>
+<li>无中生有<br>  训练某种function，训练集里只有function的output</li>
+</ul>
+<h3 id="Clustering-聚类"><a href="#Clustering-聚类" class="headerlink" title="Clustering  聚类"></a>Clustering  聚类</h3><p>化繁为简的好方法</p>
+<ul>
+<li><p>K-means（K均值）：将X集合里的元素聚类为K个类别。</p>
+</li>
+<li><p>HAC(hierarchical Agglomerative Clustering)凝聚层次聚类：<br>利用树的结构表示Data<br>在树的不同层次划分，可以得到不同数量的class。</p>
+</li>
+</ul>
+<h3 id="Dimension-Reduction-降维"><a href="#Dimension-Reduction-降维" class="headerlink" title="Dimension Reduction   降维"></a>Dimension Reduction   降维</h3><p>从比较高维的空间变为比较低维的空间。<br>实质是输入一个x，经过某一function，得到输出z，z的维度小于x的维度。</p>
+<p>方法：</p>
+<ul>
+<li>Feature selection 特征选择</li>
+<li>Principle component analysis(PCA) 主成分分析</li>
+</ul>
+<p>（未完待续）</p>
+
       
     </div>
     
-      
-        <div class="button readmore">
-          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
       
     
   </section>
@@ -737,8 +817,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
-      机器学习笔记-05
+    <a href="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/">
+      机器学习笔记-08
     </a>
   </h2>
 
@@ -768,7 +848,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
+    <p>发布于：Sep 9, 2020</p>
   </a>
 </div>
 
@@ -793,13 +873,17 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Backpropagation——反向传播"><a href="#Backpropagation——反向传播" class="headerlink" title="Backpropagation——反向传播"></a>Backpropagation——反向传播</h2><p>是有效计算gradient的向量的方法，因为随着网络的层数的增加，参数越来越多，向量越来越长，计算越来越复杂，使用反向传播比较高效。</p>
+        <h2 id="Semi-supervised-Learning-半监督学习"><a href="#Semi-supervised-Learning-半监督学习" class="headerlink" title="Semi-supervised Learning 半监督学习"></a>Semi-supervised Learning 半监督学习</h2><p>对应视频<a href="https://www.bilibili.com/video/BV13x411v7US" target="_blank" rel="noopener">BV13x411v7US</a> P23</p>
+<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><ul>
+<li>半监督学习的特点是，训练数据中存在一部分没有标记的数据，且数据量一般比标记后的数据要大。</li>
+<li>为什么使用半监督学习？因为我们更多的数据是没有标记的，如果能有效地利用这些未标记数据可以将模型训练的更好，但是这方面，精确的“假设”起很重要的作用。</li>
+</ul>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
+          <a href="/2020/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08/">
             阅读全文 <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -825,7 +909,7 @@
           </a>
         
         <p class="current">
-          2 / 6
+          2 / 7
         </p>
         
           <a class="next" rel="next" href="/archives/2020/page/3/">

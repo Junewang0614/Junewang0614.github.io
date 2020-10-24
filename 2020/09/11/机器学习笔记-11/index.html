@@ -368,7 +368,25 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2>
+          <h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/01.png" alt="01"></p>
+<h3 id="Separable-应用范围较窄"><a href="#Separable-应用范围较窄" class="headerlink" title="Separable(应用范围较窄)"></a>Separable(应用范围较窄)</h3><p>使用structured Perceptron 结构化感知机</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/02.png" alt="02"></p>
+<p><strong>问题：</strong><br><strong>这个算法什么时候才能够收敛，可能成功的找到需要的W吗？</strong><br><strong>结论：</strong><br><strong>算法花费最多的次数是（R/margin）的平方次</strong></p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/03.png" alt="03"></p>
+<h3 id="Non-separable-case"><a href="#Non-separable-case" class="headerlink" title="Non-separable case"></a>Non-separable case</h3><p>我们大多数时候可能找不到可以让正确的(x,y)对的值最大的W向量，但是我们依旧可以评价不同的W向量的好坏。</p>
+<p>为了评价W向量的好坏–&gt;定义Cost Function，用来评估W有多差，然后我们选择的W是使得Cost Function minimize的。</p>
+<p>Cost Function可以根据不同的问题自己定义。</p>
+<p>Cost Function的最小值的求解可以通过梯度下降的方法。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/04.png" alt="04"><br>特别地，当learning rate = 1的时候，这个就变成了结构化感知机。</p>
+<h3 id="Considering-error"><a href="#Considering-error" class="headerlink" title="Considering error"></a>Considering error</h3><p>不同的错误之间有差别，这个也应该考虑到Training中来。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/05.png" alt="05"></p>
+<p>如图所示，右边对应的W就比左边对应的W要好很多。</p>
+<p>所谓考虑错误的差别，即我们希望找到的W对应的评测函数F，当虽然是错误但是和正确答案比较接近的时候，两者的评测值也是接近的。但是当错误很离谱的时候，评测值和正确的评测值之间的差距则相对大了很多。</p>
+<p>做法：定义Error Function，这个函数也是自己根据不同的问题自主定义。</p>
+<p>有了Error Function，对应的Cost Function也需要作出相应修改，表示错误的差别被考虑进了training当中。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/06.png" alt="06"><br><strong>(存疑？为什么最大值是要加上Error Function)</strong></p>
+<p>计算Cost Function同样使用梯度下降<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/07.png" alt="07"><br><strong>注意：</strong>此时出现了一个问题，最大值的求解对象是改变了的，原本只是求W*Feature的最大值，这个是我们假定已经能解决出来的，现在需要求出来的是原来的值加上Error Function的值。这点提示我们Error Function要合理定义，便于计算，不然会给整个计算增添很多问题。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/08.png" alt="08"><br>算是一种理解方式？当式子满足下面两个的时候，上面的不等式是成立的，上面的不等式成立了，我们才能通过不断地减小真实y值和使F值最大的y值之间的最大差距来减小实际差距。</p>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/09.png" alt="09"></p>
+<h3 id="Structured-SVM"><a href="#Structured-SVM" class="headerlink" title="Structured SVM"></a>Structured SVM</h3>
           
             <div class='article_footer'>
               
@@ -406,10 +424,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-11T16:46:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-14T20:57:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Sep 11, 2020</p>
+    <p>更新于：Sep 14, 2020</p>
   </a>
 </div>
 
@@ -483,6 +501,16 @@
         
         
           <div class="prev-next">
+            
+              <a class='prev' href='/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习笔记-12</p>
+                <p class='content'>Sequence Labeling Problem
+以下都是以POS问题（词性标注问题）为例
+HMM（隐马尔科夫模型）假设：产生句子分为两个步骤：
+
+产生一个POS的序列，基于大脑中的语法。
+根...</p>
+              </a>
             
             
               <a class='next' href='/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10/'>
@@ -567,7 +595,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Structured-support-vector-machine"><span class="toc-text">Structured support vector machine</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Structured-support-vector-machine"><span class="toc-text">Structured support vector machine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Separable-应用范围较窄"><span class="toc-text">Separable(应用范围较窄)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Non-separable-case"><span class="toc-text">Non-separable case</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Considering-error"><span class="toc-text">Considering error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Regularization"><span class="toc-text">Regularization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Structured-SVM"><span class="toc-text">Structured SVM</span></a></li></ol></li></ol>
     </div>
   </section>
 

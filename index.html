@@ -434,9 +434,752 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/10/21/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-03/">
+      自然语言处理课堂记录-03
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 21, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="句法分析"><a href="#句法分析" class="headerlink" title="句法分析"></a>句法分析</h2><h3 id="自然语言的复杂性"><a href="#自然语言的复杂性" class="headerlink" title="自然语言的复杂性"></a>自然语言的复杂性</h3><p>1、乔姆斯基体系</p>
+<ul>
+<li><p>非受限文法 –形成递归可枚举语言（可能不可识别）</p>
+<p>剩下三种生成的都是递归语言，句子可以被判定。</p>
+</li>
+<li><p>I型文法–上下文有关法 （CSG）可生成：copy语言   NP完全问题</p>
+</li>
+<li><p>II 型文法–上下文无关法（CFG）可生成：镜像语言  Polynomial 计算机能够高效计算</p>
+</li>
+<li><p>III型文法–正规文法（RG）</p>
+</li>
+</ul>
+<p><strong>自然语言不能用RG生成：存在镜像语言</strong><br><strong>自然语言不能用CFG生成：存在系列交叉依存现象</strong></p>
+<p><strong>自然语言属于上下文有关文法，但接近CFG</strong><br><strong>需要有高效的上下文无关文法的技术</strong></p>
+<p>2、线图：保存森林。保留子串的利器，可以在线图中找到很多词法树。</p>
+<h3 id="句法分析经典算法"><a href="#句法分析经典算法" class="headerlink" title="句法分析经典算法"></a>句法分析经典算法</h3><h4 id="自底向上线图分析"><a href="#自底向上线图分析" class="headerlink" title="自底向上线图分析"></a>自底向上线图分析</h4><p>符号：<br>dot（O）:表示左边的符号已经都分析完成，右边的还没有分析。<br>key：当前分析的成分。<br><img src="/2020/10/21/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-03/01.png" alt="01"></p>
+<ol>
+<li>如果agenda数据结构为空，扫描当前句子，将扫描到的成分压进agenda</li>
+<li>从agenda中弹出成分，进行分析，成分中还有位置信息。</li>
+<li>匹配规则</li>
+<li>对成分C进行分析：<ul>
+<li>没有到头的句子成分，分析下一个成分</li>
+<li>到头的句子陈分，将它压入agenda</li>
+</ul>
+</li>
+</ol>
+<h4 id="自顶向下Earley线图分析"><a href="#自顶向下Earley线图分析" class="headerlink" title="自顶向下Earley线图分析"></a>自顶向下Earley线图分析</h4><ol>
+<li><p>先产生一定的预期，即从s出发</p>
+<p><img src="/2020/10/21/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-03/02.png" alt="02"></p>
+</li>
+<li><p>句子来迎合预期，从而达到，通过自顶向下的预期与自底向上的迎合，减少误判以及不合法句子的可能。</p>
+</li>
+<li><p>所有的非终结符都要往下不断的根据规则展开，直到不能再展开，即对词汇的预期。</p>
+</li>
+</ol>
+<p><img src="/2020/10/21/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-03/03.png" alt="03"></p>
+<p><strong>对比来看第一张图也就是第二种算法，很多不必要的判断都没有了，提高了算法的效率。</strong></p>
+<h4 id="转移网络语法"><a href="#转移网络语法" class="headerlink" title="转移网络语法"></a>转移网络语法</h4><p>感觉实质就是自动机<br>这次自动机里的弧线可以有非终结符，但非终结符也会对应相应的很多自动机</p>
+<p><img src="/2020/10/21/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-03/04.png" alt="04"></p>
+<h3 id="特征系统与扩充语法"><a href="#特征系统与扩充语法" class="headerlink" title="特征系统与扩充语法"></a>特征系统与扩充语法</h3><p>主要是处理语法规则问题(?)，例如 a men 这是不合法的句子，但是直接用上面的算法判定则是合法的。因而我们需要为词语添加特征，来生成合法的句子。feature暂时理解为，一个单词是一个节点，是由结构体构成，结构体中有很多属性可以代表单词的feature（这些都放在字典中）。句法分析的时候不仅要匹配基本句子结构，也要判断单词的feature检查。</p>
+<h3 id="扩充转移网络"><a href="#扩充转移网络" class="headerlink" title="扩充转移网络"></a>扩充转移网络</h3><p>ATN—寄存器</p>
+<h3 id="概率性上下无关文法"><a href="#概率性上下无关文法" class="headerlink" title="概率性上下无关文法"></a>概率性上下无关文法</h3><p>在有树库的基础上，添加已经计算得到的一些概率。可以求得一棵语法树的概率。沿着概率可以加快生成速度，也可提升准确率。概率+词的个性化 == 更快、更精确的结果。</p>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>基于机器学习的自然语言处理方法，如果能导入句法分析规则，精确度预计可以提高很多。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-00/">
+      自然语言处理课堂记录-00
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 18, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nlp相关词汇中英对照"><a href="#nlp相关词汇中英对照" class="headerlink" title="nlp相关词汇中英对照"></a>nlp相关词汇中英对照</h2><table>
+<thead>
+<tr>
+<th align="center">English</th>
+<th align="center">Chinese</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">synonym</td>
+<td align="center">同义词</td>
+</tr>
+<tr>
+<td align="center">hypernym</td>
+<td align="center">上位词</td>
+</tr>
+<tr>
+<td align="center">Co-Occurrence</td>
+<td align="center">同现</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/">
+      自然语言处理课堂记录-02
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 18, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="词法及语言模型"><a href="#词法及语言模型" class="headerlink" title="词法及语言模型"></a>词法及语言模型</h2><h3 id="词表示"><a href="#词表示" class="headerlink" title="词表示"></a>词表示</h3><p>是翻译词中的符号成为机器可以理解的语义的过程。能让计算机理解每个词背后的meaning，实现对词的语义信息的表示。</p>
+<p>应用：计算词之间的相似度，发现词之间的关系。</p>
+<p>利用近义词和上位词表示的缺陷、利用词典进行词义表示的缺陷：依旧会丧失词义的细节信息；人工编撰的字典更新比较慢，对词汇新的词义很难捕捉到；也会包含一定的人的主观感受；大量的人力</p>
+<h4 id="one-hot-representation"><a href="#one-hot-representation" class="headerlink" title="one-hot representation"></a>one-hot representation</h4><p>在计算机里给每一个词赋予一个独一无二的id，利用长度为整个词典的向量进行词表示，除了id位为1，其他位都为0。</p>
+<p>最常用的是，对整篇文档进行表示，形成关于文档的高效表示，可以用来计算两个文档之间的相似度。—词袋模型</p>
+<p><strong>存在问题：</strong> 没有办法表示和衡量任意两个词之间的相似度。词的表示之间的都是正交的。没有办法保留相似度之间的信息，假设每个词都是独立的。</p>
+<h4 id="Represent-Word-by-Context"><a href="#Represent-Word-by-Context" class="headerlink" title="Represent Word by Context"></a>Represent Word by Context</h4><p><em>You shell know the word by the company it keeps</em></p>
+<p>词的表示和其所在的上下文有密切的关系。利用一个词的上下文的词来表示这个词。</p>
+<p><strong>Co-Occurrence Counts</strong></p>
+<p>还是用一个词典长度的vector来表示单词，这里用大量的文本中，出现在这个中心词周围的单词的次数（count-based)，上下文词的分布（distribution）作为表示这个中心词的向量。</p>
+<p>window短：获得更多句法信息<br>window长：获得更多语义信息</p>
+<ul>
+<li><p><strong>Term-term matrix</strong>：词和词之间同线的矩阵</p>
+<p>如下图，生成的矩阵行和列都是单词的长度，eg： i和like在这三句话（语料信息）中同现两次（出现在同一篇文章中），所以组成的矩阵中，matrix[i][like] = 2 （m = 2？）</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/01.png" alt="01"></p>
+</li>
+<li><p><strong>Term-Document Matrix</strong>：词和文章形成的矩阵</p>
+<p>行和列分别是单词和特定文章，每一列可以用该列生成vector表示当前文章。</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/02.png" alt="02"></p>
+</li>
+</ul>
+<p>相似度计算方法：（1）计算点积（相同维度相乘再相加）  （2）余弦相似度：相当于做了一个归一化，点积除以向量的长度。</p>
+<p><strong>问题：</strong>（1）向量的size随着词汇量的变大而变大。存储等都是问题（2）低频的词汇，向量很稀疏，计算的精确度下降。</p>
+<h3 id="分布式词表示"><a href="#分布式词表示" class="headerlink" title="分布式词表示"></a>分布式词表示</h3><p>1、语言模型</p>
+<p>做什么：</p>
+<ul>
+<li>计算一个文字序列，组成语言的概率有多少。</li>
+<li>知道序列的前半部分，能够预测出下一个字符是什么的概率。</li>
+</ul>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/03.png" alt="03"></p>
+<p><strong>假设：</strong>w<sub>n</sub>出现的概率，仅有w<sub>1</sub>……w<sub>n-1</sub>决定。<br><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/04.png" alt="04"></p>
+<h4 id="N-gram-Model"><a href="#N-gram-Model" class="headerlink" title="N-gram Model"></a>N-gram Model</h4><p>因为如果将一个词前面出现的词全部计算来计算其概率，算法复杂度太大。为了解决这一缺陷，会选择限制选择前面词的数量（比如只利用前2-3个词来计算当前位置的词出现的概率）。即某个词条件概率只依赖于其前面有限个词的概率。</p>
+<p><strong>问题：</strong>（1）因为是近似，所以会存在着不准确性。（2）不能够很好的捕捉词之间的相似性。</p>
+<h4 id="Neural-Language-Model"><a href="#Neural-Language-Model" class="headerlink" title="Neural Language Model"></a>Neural Language Model</h4><p>过程： </p>
+<ol>
+<li>每个词用one hot表示组成一个矩阵</li>
+<li>通过输入的句子序列，将在一起的两个词vector取出，拼接到一起。</li>
+<li>通过一个激发函数</li>
+<li>通过一个映射函数(机器学习得到参数矩阵)</li>
+<li>通过softmax函数，将值归一化，这样得到的向量里，每一个维度代表着这一维的词是接在后面的可能性的大小。</li>
+<li><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/05.png" alt="5"></li>
+</ol>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/06.png" alt="06"></p>
+<p><strong>loss function:</strong>交叉熵</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/07.png" alt="07"></p>
+<p><strong>总结：</strong></p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/08.png" alt="08"></p>
+<p><strong>缺陷：</strong>（1）太多的参数     （2）太多的计算</p>
+<h3 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h3><p><strong>CBOW:</strong> input：上下文    output：w<sub>0</sub>预测中心词</p>
+<p><strong>Skip-Ggram:</strong> input: W<sub>0</sub>中心词    output：上下文的词汇</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/09.png" alt="09"></p>
+<h4 id="CBOW"><a href="#CBOW" class="headerlink" title="CBOW"></a>CBOW</h4><p>用上下文的词来预测中心词</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/10.png" alt="10"></p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/11.png" alt="11"></p>
+<p><strong>问题：</strong> 过于依靠上下文来表示词义，如果两个词上下文相同，就会得到很相似的词向量表示，但可能这两个词并没有那么高的相似度。</p>
+<h4 id="skip-gram"><a href="#skip-gram" class="headerlink" title="skip-gram"></a>skip-gram</h4><p>中心词预测每一个上下文的词，分别预测其可能的上下文</p>
+<h4 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h4><p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/12.png" alt="12"></p>
+<ol>
+<li>最复杂的步骤是计算softmax来形成概率向量</li>
+<li>loss-function也是利用交叉熵，也利用各种优化器来反向传播</li>
+</ol>
+<p><strong>问题：</strong> softmax的计算非常复杂，每个词都要算</p>
+<p><strong>两个改进方法：</strong></p>
+<ul>
+<li><p>Negative sampling 负例取样</p>
+<p>不是将每个词都计算，而是针对某一个中心词，只取一定量的负例（也就是不正确的其他词）来进行计算，只要保证负例与正例之间的距离足够大就可以。</p>
+<p><img src="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-02/13.png" alt="13"></p>
+</li>
+<li><p>Hierarchical softmax</p>
+<p>根据单词的频度，组装成哈夫曼树。计算softmax不需要再计算全部，沿着树的路径来算即可，也可以提高效率</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/10/18/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%AF%BE%E5%A0%82%E8%AE%B0%E5%BD%95-01/">
+      自然语言处理课堂记录-01
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 18, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一讲-绪论"><a href="#第一讲-绪论" class="headerlink" title="第一讲 绪论"></a>第一讲 绪论</h2><p>1、什么是自然语言处理？</p>
+<p>让计算机能够处理并理解自然语言。</p>
+<p>2、语言</p>
+<p>语言是人与人之间最方便、最自然、最有效的交流通讯工具</p>
+<p>语言是知识的载体，语言和人类智能关系密切。</p>
+<p>3、经典应用</p>
+<p>ACL,EMNLP,CO</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/09/22/pytorch-01/">
+      pytorch-01
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 22, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Pytorch构建深度学习模型"><a href="#Pytorch构建深度学习模型" class="headerlink" title="Pytorch构建深度学习模型"></a>Pytorch构建深度学习模型</h2><h3 id="经典项目"><a href="#经典项目" class="headerlink" title="经典项目"></a>经典项目</h3><p>1、图像分类：github.com/floydhub/imagent</p>
+<p>2、github.com/amdegroot/ssd.pytorch</p>
+<p>3、github.com/ruotianluo/ImageCaptioning.pytorch</p>
+<p>4、github.com/allenai/document-qa</p>
+<p>5、</p>
+<p>……</p>
+<h3 id="构建简单的两层网络"><a href="#构建简单的两层网络" class="headerlink" title="构建简单的两层网络"></a>构建简单的两层网络</h3><h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>论文：distribution representations of words and phrases and their compositionality</p>
+<ul>
+<li>词编码需要保证词的相似性</li>
+</ul>
+<p><strong>分布式表示</strong>：用一个词附近的其他词来表示该词</p>
+<p><strong>Word2Vec：skip-gram模型</strong></p>
+<p>中心词预测中文词。词向量能够预测周围单词的信息。</p>
+<p><strong>Negative sampling 负例采样</strong>：因为计算所有的单词关系太困难，所以采用采样的方式，然后我们所希望的是中心词周围正确的单词的分数越高越好，不正确的周围的单词分数越低越好。这是我们的一个训练任务。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/">
+      机器学习笔记-12
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://junewang0614.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>June</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 14, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Sequence-Labeling-Problem"><a href="#Sequence-Labeling-Problem" class="headerlink" title="Sequence Labeling Problem"></a>Sequence Labeling Problem</h2><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/01.png" alt="01"></p>
+<p>以下都是以POS问题（词性标注问题）为例</p>
+<h3 id="HMM（隐马尔科夫模型）"><a href="#HMM（隐马尔科夫模型）" class="headerlink" title="HMM（隐马尔科夫模型）"></a>HMM（隐马尔科夫模型）</h3><p>假设：<br>产生句子分为两个步骤：</p>
+<ul>
+<li>产生一个POS的序列，基于大脑中的语法。</li>
+<li>根据POS序列的tag，找到对应词性的单词，对应方式是基于词典</li>
+<li>-&gt;形成一句话</li>
+</ul>
+<h4 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h4><p>Step 1: 根据马尔科夫链，计算产生相应POS的几率<br>step 2：基于相应的pos序列，在指定位置上配上某一单词的几率，将整句话组成的序列相乘，也就得到了在该pos序列条件下，生成这句话的几率。</p>
+<p>基于以上两个步骤，利用条件概率公式，可以计算出X：句子序列，Y：词性序列，两者相匹配的几率。下图是一个例子：<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/02.png" alt="02"></p>
+<p>更一般化的描述：<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/03.png" alt="03"><br><strong>其中的各种几率根据training data可以统计得到</strong></p>
+<p><strong>计算方式</strong><br>已知x，想要求的Y，实际上就是通过穷举所有的Y，找到让P(x,y)最大的Y的过程。<br>直接通过暴力枚举的话算法的复杂的非常大，借助viterbi algorithm可以将复杂度大幅度降低，提高效率(一般复杂度为O(L|S|<sup>2</sup>),L为序列长度，S为词性元素)</p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>根据结构化学习的方式，HMM解决了对应的三个问题。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/04.png" alt="04"></p>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><p>HMM“脑补”问题：</p>
+<p>由于HMM假设了Transition probability 和 Emission probability之间是相互独立的，得到的计算公式P(x,y)体现了这一点，两个可能性单独通过训练集进行训练。所以可能会出现HMM根据公式自主创造新序列的可能性。</p>
+<p>这个问题有好有坏：</p>
+<ul>
+<li>不好的地方：正确的序列的P(x,y)值可能反而小于错误的P(x,y)值</li>
+<li>好的地方：当数据集数据很少的时候，通过脑补反而会有比较好的表现</li>
+</ul>
+<h3 id="CRF-条件随机场"><a href="#CRF-条件随机场" class="headerlink" title="CRF 条件随机场"></a>CRF 条件随机场</h3><ul>
+<li>P(x,y)是与一个 exp(W*feature(x,y))正相关的</li>
+<li>HMM与CRF的本质是一样的</li>
+</ul>
+<h4 id="HMM到CRF的转换"><a href="#HMM到CRF的转换" class="headerlink" title="HMM到CRF的转换"></a>HMM到CRF的转换</h4><ul>
+<li><p>将p(x,y)取log值，化乘为加<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/05.png" alt="05"></p>
+</li>
+<li><p>所有形如下图左边的求和表达式条件概率，都可以表示成右边的形式<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/06.png" alt="06"></p>
+</li>
+<li><p>HMM的P(x,y)表达式取log值后，可以划分为四个部分：</p>
+<ul>
+<li>词性Y1作为句子开头的概率的log值</li>
+<li>词性yi+1在yi后面出现的概率的log值（由1-（L-1)求和)</li>
+<li>词性yL在句子末尾的概率的log值</li>
+<li>实际单词xi对应词性yi的概率的log值（由1-L求和）<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/07.png" alt="07"></li>
+</ul>
+</li>
+<li><p>最后的结果，可以表示成两个向量做内积，其中紫色部分为w,红色部分为feature(x,y)。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/09.png" alt="09"></p>
+</li>
+<li><p>w中的每一维是可以和相应的概率进行对应，但是由于不能保证W最后结果的每一维都小于1，而概率不能大于1，所以以正相关描述两者关系。</p>
+</li>
+</ul>
+<h4 id="Feature-vector的组成"><a href="#Feature-vector的组成" class="headerlink" title="Feature vector的组成"></a>Feature vector的组成</h4><ul>
+<li>part1：tags和words之间的关系<br>类似于一个邻接矩阵，矩阵形成所有的（tag，word）对，记录的值是该对在句子中出现的次数。</li>
+<li>part2：tag与tag之间的关系（tag：词性+start+end组成的集合）<br>同样类似于邻接矩阵，所有的（tag，tag）对一一配对，形成矩阵。（tag1，tag2）指的是tag2出现在tag1之后的情况。还是记录次数。</li>
+<li>其实feature(x,y)可以自己定义。</li>
+</ul>
+<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/10.png" alt="10"><br>如图所示<br>正如一般的结构化学习，在训练CRF的时候，我们希望可以定义一个函数，这里是O(w)，找到的W，是可以在数据是正确的(x,y)对时，另这个O(w)最大化的函数。<br>在这里，我们用条件概率p(y|x)用来组成O(w)。</p>
+<p>而组成的O(w)根据统计学公式，我们又可以写成相减的两部分。第一部分对我们而言是可见的（橙色的），我们需要最大化的；第二部分对我们而言是不可见的（蓝色的），我们需要最小化。</p>
+<p>因为这里是最大化，使用的方法不再是梯度下降，而是梯度增加。<br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/11.png" alt="11"></p>
+<p>(具体计算有些困难，暂时没有理解)</p>
+<p><strong>最后的梯度上升的公式</strong><br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/12.png" alt="12"></p>
+<ul>
+<li>绿色的部分是正确的对出现的次数，意味着s，t可以被正确匹配的时候，我们应该增大W。因而是正相关。</li>
+<li>黄色的部分是其余任意的对出现的概率，意味着当s,t匹配错误的时候，我们应该减小W。因而是负相关。</li>
+</ul>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/14.png" alt="14"></p>
+<h3 id="CRF-vs-HMM"><a href="#CRF-vs-HMM" class="headerlink" title="CRF vs HMM"></a>CRF vs HMM</h3><p><strong>本质区别：CRF会通过调整参数，尽可能降低错误对的机率，而HMM不具备这个功能</strong><br><img src="/2020/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-12/13.png" alt="13"></p>
+<p>在计算中，HMM依据的是准确的P的值，而CRF只是根据训练集数据一直在训练调整参数，fit data。使得正确的对机率上升，错误对机率下降。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -508,7 +1251,25 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2>
+        <h2 id="Structured-support-vector-machine"><a href="#Structured-support-vector-machine" class="headerlink" title="Structured support vector machine"></a>Structured support vector machine</h2><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/01.png" alt="01"></p>
+<h3 id="Separable-应用范围较窄"><a href="#Separable-应用范围较窄" class="headerlink" title="Separable(应用范围较窄)"></a>Separable(应用范围较窄)</h3><p>使用structured Perceptron 结构化感知机</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/02.png" alt="02"></p>
+<p><strong>问题：</strong><br><strong>这个算法什么时候才能够收敛，可能成功的找到需要的W吗？</strong><br><strong>结论：</strong><br><strong>算法花费最多的次数是（R/margin）的平方次</strong></p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/03.png" alt="03"></p>
+<h3 id="Non-separable-case"><a href="#Non-separable-case" class="headerlink" title="Non-separable case"></a>Non-separable case</h3><p>我们大多数时候可能找不到可以让正确的(x,y)对的值最大的W向量，但是我们依旧可以评价不同的W向量的好坏。</p>
+<p>为了评价W向量的好坏–&gt;定义Cost Function，用来评估W有多差，然后我们选择的W是使得Cost Function minimize的。</p>
+<p>Cost Function可以根据不同的问题自己定义。</p>
+<p>Cost Function的最小值的求解可以通过梯度下降的方法。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/04.png" alt="04"><br>特别地，当learning rate = 1的时候，这个就变成了结构化感知机。</p>
+<h3 id="Considering-error"><a href="#Considering-error" class="headerlink" title="Considering error"></a>Considering error</h3><p>不同的错误之间有差别，这个也应该考虑到Training中来。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/05.png" alt="05"></p>
+<p>如图所示，右边对应的W就比左边对应的W要好很多。</p>
+<p>所谓考虑错误的差别，即我们希望找到的W对应的评测函数F，当虽然是错误但是和正确答案比较接近的时候，两者的评测值也是接近的。但是当错误很离谱的时候，评测值和正确的评测值之间的差距则相对大了很多。</p>
+<p>做法：定义Error Function，这个函数也是自己根据不同的问题自主定义。</p>
+<p>有了Error Function，对应的Cost Function也需要作出相应修改，表示错误的差别被考虑进了training当中。<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/06.png" alt="06"><br><strong>(存疑？为什么最大值是要加上Error Function)</strong></p>
+<p>计算Cost Function同样使用梯度下降<br><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/07.png" alt="07"><br><strong>注意：</strong>此时出现了一个问题，最大值的求解对象是改变了的，原本只是求W*Feature的最大值，这个是我们假定已经能解决出来的，现在需要求出来的是原来的值加上Error Function的值。这点提示我们Error Function要合理定义，便于计算，不然会给整个计算增添很多问题。</p>
+<p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/08.png" alt="08"><br>算是一种理解方式？当式子满足下面两个的时候，上面的不等式是成立的，上面的不等式成立了，我们才能通过不断地减小真实y值和使F值最大的y值之间的最大差距来减小实际差距。</p>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><p><img src="/2020/09/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-11/09.png" alt="09"></p>
+<h3 id="Structured-SVM"><a href="#Structured-SVM" class="headerlink" title="Structured SVM"></a>Structured SVM</h3>
       
     </div>
     
@@ -801,532 +1562,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/">
-      机器学习笔记-07
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Sep 7, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Recurrent-Neural-Network-RNN"><a href="#Recurrent-Neural-Network-RNN" class="headerlink" title="Recurrent Neural Network(RNN)"></a>Recurrent Neural Network(RNN)</h2><p>对应视频：p20-p21</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/03/pythorch/">
-      pythorch
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 3, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="PyTorch-Introduction"><a href="#PyTorch-Introduction" class="headerlink" title="PyTorch Introduction"></a>PyTorch Introduction</h2><h3 id="tensor张量"><a href="#tensor张量" class="headerlink" title="tensor张量"></a>tensor张量</h3><p>1、与numpy的相互转换</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor-&gt;numpy ：</span></span><br><span class="line">y_numpy = torch.numpy(x_tensor)</span><br><span class="line"><span class="comment">#numpy-&gt;tensor ：</span></span><br><span class="line">y_torch = torch.from_numpy(x_numpy)</span><br></pre></td></tr></table></figure>
-
-<p>2、tensor可以转变矩阵形状，只要总共的元素数不变就行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tensor.view</span></span><br><span class="line">x = torch.rand(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">y = x.view(<span class="number">15</span>)</span><br><span class="line">z = x.view(<span class="number">-1</span>, <span class="number">5</span>)  <span class="comment"># -1所指的维度可以根据其他维度的值推出来</span></span><br><span class="line"><span class="comment">#只有一个维度可以赋值-1！</span></span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure>
-
-<p>3、</p>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/03/CS224n-01/">
-      CS224n-01
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 3, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="词向量表示"><a href="#词向量表示" class="headerlink" title="词向量表示"></a>词向量表示</h2><p><a href="https://www.bilibili.com/video/BV1pt411h7aT?p=2" target="_blank" rel="noopener">bilibili</a> —p2</p>
-<p>nltk</p>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
-      《神经网络与深度学习》第一章 阅读笔记
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第二章-机器学习概述"><a href="#第二章-机器学习概述" class="headerlink" title="第二章 机器学习概述"></a>第二章 机器学习概述</h2>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/08/02/NNDL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
-      机器学习笔记-06
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>简化整体网络结构，选择较少的参数（相较于全连接前馈网络）。</p>
-<p><a href="https://www.bilibili.com/video/BV1sE411K7Lw?p=15" target="_blank" rel="noopener">bilibili</a> P14</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-06/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
-      机器学习笔记-05
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://junewang0614.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>June</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 2, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Backpropagation——反向传播"><a href="#Backpropagation——反向传播" class="headerlink" title="Backpropagation——反向传播"></a>Backpropagation——反向传播</h2><p>是有效计算gradient的向量的方法，因为随着网络的层数的增加，参数越来越多，向量越来越长，计算越来越复杂，使用反向传播比较高效。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/08/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-05/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1335,7 +1570,7 @@
       <div class="prev-next">
         
         <p class="current">
-          1 / 3
+          1 / 4
         </p>
         
           <a class="next" rel="next" href="/page/2/">
